@@ -36,12 +36,44 @@ titanic-survival-prediction/
 - [x] Null values handled and categorical features encoded
 - [x] Core exploratory visualizations plotted and reviewed
 
-## 🧪 Upcoming Work
+## ✅ Completed Tasks
 
-- [ ] Train predictive model using Scikit-learn
-- [ ] Evaluate model performance with multiple metrics
-- [ ] Experiment with TensorFlow/Keras and PyTorch implementations
-- [ ] Wrap model in a Django REST API for web deployment
+## 📊 3. Exploration and Visualization
+- [x] Created plots using Seaborn and Matplotlib (`visualize_dataset.py`)
+- Survival count (bar plot)
+- Age distribution (histogram with KDE)
+- Survival by sex (countplot with hue)
+- Feature correlation heatmap
+- [x] Extracted visual insights and initial patterns
+
+## 🧠 4. Modeling with Scikit-learn
+- [x] Cleaned and converted all features to numeric format (`clean_dataset.py`)
+- [x] Performed train/test split (80/20) using `train_test_split`
+- [x] Trained logistic regression model (`train_model.py`)
+- [x] Evaluated model using:
+- Accuracy
+- Precision
+- Recall
+- Confusion Matrix
+- Full Classification Report
+
+## 🧪 Upcoming Tasks
+
+## 🤖 5. Deep Learning with TensorFlow/Keras
+- [ ] Build a simple feedforward neural network using Keras
+- [ ] Train and evaluate the model
+- [ ] Plot training and validation curves
+
+## 🔁 6. Comparison with PyTorch
+- [ ] Build an equivalent model using PyTorch
+- [ ] Train and compare results side-by-side
+
+## 🌐 7. Deployment (Bonus)
+- [ ] Save trained models using `joblib` or `keras.models.save_model`
+- [ ] Wrap prediction logic in a Django REST API (optional)
+- [ ] Deploy via Docker or Render (optional)
+
+
 
 ## 🧬 How to Run Locally
 
