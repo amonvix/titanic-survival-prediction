@@ -1,13 +1,8 @@
-asgiref==3.8.1
 Django==5.2.1
+djangorestframework
 numpy==2.2.6
-sqlparse==0.5.3
-pandas
-numpy
-matplotlib
-seaborn
+joblib
 scikit-learn
 tensorflow
 keras
-torch
-jupyter
+gunicorn
