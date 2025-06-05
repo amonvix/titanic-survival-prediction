@@ -1,0 +1,29 @@
+[2025-06-05 19:21:39,672] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-05 19:22:03,825] INFO in basehttp: "GET / HTTP/1.1" 302 0
+[2025-06-05 19:21:51,320] WARNING in log: Method Not Allowed: /predict/
+[2025-06-05 19:21:51,321] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 10307
+[2025-06-05 19:21:51,445] INFO in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+[2025-06-05 19:21:51,449] INFO in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+[2025-06-05 19:21:51,452] INFO in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+[2025-06-05 19:21:51,453] INFO in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,459] INFO in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,463] INFO in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,465] INFO in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+[2025-06-05 19:21:51,469] INFO in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,470] INFO in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,470] INFO in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,472] INFO in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+[2025-06-05 19:21:51,475] INFO in basehttp: "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+[2025-06-05 19:22:02,204] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:05,698] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:06,435] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:06,833] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:07,036] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:07,163] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:07,383] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:07,543] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:07,732] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:08,024] INFO in basehttp: "OPTIONS /predict/ HTTP/1.1" 200 10574
+[2025-06-05 19:22:39,984] INFO in views: Received input: {'pclass': 3, 'sex': 'male', 'age': 25, 'sibsp': 0, 'parch': 0, 'fare': 30.0, 'embarked': 'S', 'class': 'Third', 'who': 'man', 'adult_male': 1, 'embark_town': 'Southampton', 'alive': 'yes', 'alone': 1}
+[2025-06-05 19:22:40,147] INFO in views: Prediction result: {'survived': True, 'confidence': 0.9995182752609253}
+[2025-06-05 19:22:40,152] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 10297
