@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-^)=rm%zwij-ao^z)s9qa%g+m3-^rij26_%6^cdik+xd9#2=inp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -61,7 +61,7 @@ ROOT_URLCONF = "titanic_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'prediction', 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
