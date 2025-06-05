@@ -5,8 +5,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from scripts.predict_logic import predict_survival
+from django.shortcuts import render
 
-logger = logging.getLogger('prediction')
+logger = logging.getLogger("prediction")
+
+
+def form_view(request):
+    return render(request, "predict_form.html")
+
 
 class PredictView(APIView):
     def post(self, request):
