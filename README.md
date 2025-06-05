@@ -1,3 +1,5 @@
+[![API online](https://img.shields.io/badge/🔮%20Titanic%20IA-Online-brightgreen)](https://titanic-api-ezpf.onrender.com)
+
 # 🧠 Titanic Survival Prediction – Data Science Project
 
 This project uses a structured machine learning pipeline to predict passenger survival on the Titanic, using open data and popular Python libraries.
