@@ -4,5 +4,5 @@ numpy==2.2.6
 joblib
 scikit-learn
 tensorflow
-keras
 gunicorn
+django-cors-headers
