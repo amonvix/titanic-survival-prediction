@@ -27,3 +27,7 @@ class PredictView(APIView):
         except Exception as e:
             logger.error(f"Prediction error: {str(e)}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        return Response({"error": "GET not allowed here."}, status=405)
+        
