@@ -7,5 +7,4 @@ from django.shortcuts import redirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('prediction.urls')),
-    path('', lambda request: redirect('/predict/', permanent=False)),  # redireciona /
 ]
