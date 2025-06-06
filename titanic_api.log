@@ -27,3 +27,259 @@
 [2025-06-05 19:22:39,984] INFO in views: Received input: {'pclass': 3, 'sex': 'male', 'age': 25, 'sibsp': 0, 'parch': 0, 'fare': 30.0, 'embarked': 'S', 'class': 'Third', 'who': 'man', 'adult_male': 1, 'embark_town': 'Southampton', 'alive': 'yes', 'alone': 1}
 [2025-06-05 19:22:40,147] INFO in views: Prediction result: {'survived': True, 'confidence': 0.9995182752609253}
 [2025-06-05 19:22:40,152] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 10297
+[2025-06-06 15:55:38,387] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 15:55:53,390] INFO in basehttp: "GET / HTTP/1.1" 200 16
+[2025-06-06 15:55:53,482] WARNING in log: Not Found: /favicon.ico
+[2025-06-06 15:55:53,483] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 2511
+[2025-06-06 15:57:52,924] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 15:57:52,925] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:00:27,890] WARNING in log: Forbidden (CSRF cookie not set.): /
+[2025-06-06 16:00:27,893] WARNING in basehttp: "POST / HTTP/1.1" 403 2855
+[2025-06-06 16:00:38,478] ERROR in log: Internal Server Error: /predict
+Traceback (most recent call last):
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/predict/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-06-06 16:00:38,479] ERROR in basehttp: "POST /predict HTTP/1.1" 500 70920
+[2025-06-06 16:03:25,535] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:03:34,336] INFO in basehttp: "GET / HTTP/1.1" 200 16
+[2025-06-06 16:03:41,320] ERROR in log: Internal Server Error: /predict
+Traceback (most recent call last):
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/predict/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-06-06 16:03:41,321] ERROR in basehttp: "POST /predict HTTP/1.1" 500 70920
+[2025-06-06 16:03:50,159] WARNING in log: Forbidden (CSRF cookie not set.): /
+[2025-06-06 16:03:50,160] WARNING in basehttp: "POST / HTTP/1.1" 403 2855
+[2025-06-06 16:11:02,993] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:11:11,478] INFO in basehttp: "GET / HTTP/1.1" 200 16
+[2025-06-06 16:11:32,274] WARNING in log: Forbidden (CSRF cookie not set.): /
+[2025-06-06 16:11:32,275] WARNING in basehttp: "POST / HTTP/1.1" 403 2855
+[2025-06-06 16:12:02,384] ERROR in log: Internal Server Error: /predict
+Traceback (most recent call last):
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/utils/deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/amonvix/projetos/titanic-survival-prediction/venv/lib/python3.12/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/predict/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2025-06-06 16:12:02,386] ERROR in basehttp: "POST /predict HTTP/1.1" 500 70920
+[2025-06-06 16:17:56,580] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/titanic_project/settings.py changed, reloading.
+[2025-06-06 16:17:57,854] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:18:05,772] INFO in basehttp: "GET / HTTP/1.1" 200 16
+[2025-06-06 16:18:13,653] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:18:13,654] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:18:22,498] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:18:22,506] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:18:22,506] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:20:13,559] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/titanic_project/settings.py changed, reloading.
+[2025-06-06 16:20:14,652] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:20:38,519] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:21:00,629] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:21:00,634] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:21:00,635] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:21:02,221] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:21:02,228] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:21:02,228] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:21:05,398] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:21:05,405] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:21:05,406] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:21:15,235] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:21:15,240] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:21:15,241] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:21:16,520] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:21:16,528] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:21:16,529] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:44:59,458] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 16:46:04,045] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:46:04,052] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:46:04,053] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:46:05,671] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:46:05,677] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:46:05,678] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:46:14,235] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:46:14,241] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:46:14,242] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:46:15,589] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:46:15,597] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:46:15,597] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 16:46:33,744] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 16:46:33,749] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 16:46:33,750] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 41
+[2025-06-06 17:03:07,988] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/titanic_project/urls.py changed, reloading.
+[2025-06-06 17:03:09,493] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:04:06,900] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:04:55,678] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:07:52,735] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/titanic_project/views.py changed, reloading.
+[2025-06-06 17:07:53,879] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:08:02,582] WARNING in log: Not Found: /
+[2025-06-06 17:08:02,584] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-06-06 17:08:12,737] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:08:12,743] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:08:12,743] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 33
+[2025-06-06 17:08:30,208] WARNING in log: Not Found: /prediction
+[2025-06-06 17:08:30,208] WARNING in basehttp: "POST /prediction HTTP/1.1" 404 179
+[2025-06-06 17:08:39,606] WARNING in log: Not Found: /
+[2025-06-06 17:08:39,606] WARNING in basehttp: "POST / HTTP/1.1" 404 179
+[2025-06-06 17:09:40,846] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:09:40,852] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:09:40,853] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 33
+[2025-06-06 17:17:54,922] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:17:54,927] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:17:54,928] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 33
+[2025-06-06 17:18:10,519] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:18:10,525] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:18:10,525] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 33
+[2025-06-06 17:24:58,460] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-06-06 17:25:00,076] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:25:12,779] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:25:12,786] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:25:12,787] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:26:12,680] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:26:11,606] WARNING in log: Not Found: /
+[2025-06-06 17:26:11,608] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-06-06 17:26:31,989] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:26:32,010] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:26:32,011] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:29:16,700] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:29:16,706] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:29:16,707] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:29:23,923] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:29:23,929] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:29:23,930] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:30:37,392] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:30:37,399] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:30:37,400] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:31:22,769] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:31:22,775] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:31:22,776] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:33:17,807] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:33:17,807] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third'}
+[2025-06-06 17:33:17,808] ERROR in views: Prediction error: X has 9 features, but StandardScaler is expecting 13 features as input.
+[2025-06-06 17:33:17,809] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:33:17,809] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 83
+[2025-06-06 17:33:33,949] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:33:33,949] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third'}
+[2025-06-06 17:33:33,949] ERROR in views: Prediction error: X has 9 features, but StandardScaler is expecting 13 features as input.
+[2025-06-06 17:33:33,950] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:33:33,950] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 83
+[2025-06-06 17:35:19,288] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:35:19,288] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 17:35:19,289] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 17:35:19,289] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:35:19,290] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 17:46:48,225] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:47:10,719] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:47:10,720] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 17:47:10,720] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 17:47:10,721] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:47:10,721] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 17:52:51,683] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:52:51,684] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 17:52:51,684] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 17:52:51,685] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:52:51,685] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 17:52:59,320] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-06 17:52:59,329] WARNING in log: Method Not Allowed: /predict/
+[2025-06-06 17:52:59,330] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 40
+[2025-06-06 17:53:10,646] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:53:10,646] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 17:53:10,646] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 17:53:10,646] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:53:10,647] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 17:56:19,046] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 17:56:52,820] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 17:56:52,821] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 17:56:52,821] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 17:56:52,822] WARNING in log: Bad Request: /predict/
+[2025-06-06 17:56:52,822] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 18:08:12,181] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 18:12:34,409] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 18:13:34,252] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 18:13:34,253] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 18:13:34,254] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 18:13:34,255] WARNING in log: Bad Request: /predict/
+[2025-06-06 18:13:34,257] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 18:21:23,427] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 18:21:42,092] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 18:21:42,093] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 18:21:42,093] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 18:21:42,094] WARNING in log: Bad Request: /predict/
+[2025-06-06 18:21:42,095] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 18:23:27,909] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 18:23:27,909] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'D', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 18:23:27,910] ERROR in views: Prediction error: could not convert string to float: np.str_('D')
+[2025-06-06 18:23:27,910] WARNING in log: Bad Request: /predict/
+[2025-06-06 18:23:27,911] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 18:34:22,886] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 18:34:22,887] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'D', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 18:34:22,887] ERROR in views: Prediction error: could not convert string to float: np.str_('D')
+[2025-06-06 18:34:22,888] WARNING in log: Bad Request: /predict/
+[2025-06-06 18:34:22,888] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 18:34:59,289] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 18:35:18,083] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 18:35:18,084] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'D', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 18:35:18,084] ERROR in views: Prediction error: could not convert string to float: np.str_('D')
+[2025-06-06 18:35:18,085] WARNING in log: Bad Request: /predict/
+[2025-06-06 18:35:18,085] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 19:39:34,692] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 19:39:53,128] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:39:53,128] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'D', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:39:53,129] ERROR in views: Prediction error: could not convert string to float: np.str_('D')
+[2025-06-06 19:39:53,129] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:39:53,130] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 19:40:03,377] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:40:03,378] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': '', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:40:03,379] ERROR in views: Prediction error: could not convert string to float: np.str_('')
+[2025-06-06 19:40:03,380] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:40:03,381] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 58
+[2025-06-06 19:40:12,056] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:40:12,057] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': '2', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:40:12,325] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
+[2025-06-06 19:40:12,330] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
+[2025-06-06 19:45:11,137] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 19:45:37,649] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:45:37,649] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:45:37,650] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 19:45:37,650] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:45:37,651] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 19:48:21,768] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:48:21,769] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:48:21,770] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 19:48:21,771] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:48:21,771] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 19:48:45,535] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:48:45,536] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:48:45,536] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 19:48:45,536] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:48:45,537] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 19:52:00,763] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 19:53:36,806] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 19:53:36,806] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 19:53:36,808] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 19:53:36,809] WARNING in log: Bad Request: /predict/
+[2025-06-06 19:53:36,809] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
