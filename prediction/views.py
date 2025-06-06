@@ -1,5 +1,4 @@
 # prediction/views.py
-
 import logging
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -9,14 +8,14 @@ from django.shortcuts import render
 
 logger = logging.getLogger("prediction")
 
-
 def form_view(request):
     return render(request, "predict_form.html")
-
 
 class PredictView(APIView):
     def post(self, request):
         try:
+            logger.info("🔥 PredictView: POST method accessed")
+            
             input_data = request.data
             logger.info(f"Received input: {input_data}")
 
@@ -28,6 +27,5 @@ class PredictView(APIView):
             logger.error(f"Prediction error: {str(e)}")
             return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request):
-        return Response({"error": "GET not allowed here."}, status=405)
+    
         

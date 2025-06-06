@@ -2,10 +2,11 @@
 
 from django.contrib import admin
 from django.urls import path
-from titanic_project.views import status, predict
+from prediction.views import PredictView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", status),
-    path("predict/", predict),
+    path(
+        "predict/", PredictView.as_view()
+    ),  # está apontando pra predict() que não existe no views.py
 ]
