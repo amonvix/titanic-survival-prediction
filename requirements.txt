@@ -6,3 +6,4 @@ scikit-learn
 tensorflow
 gunicorn
 django-cors-headers
+uvicorn[standard]
