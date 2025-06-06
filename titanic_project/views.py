@@ -1,13 +1,15 @@
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+import os
 import json
 import numpy as np
 import joblib
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from keras.models import load_model
 
 # Carregamento do modelo e scaler
-model = load_model("keras_model/model.h5")
-scaler = joblib.load("keras_model/keras_scaler.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model = load_model(os.path.join(BASE_DIR, "../models/keras_model.keras"))
+scaler = joblib.load(os.path.join(BASE_DIR, "../models/keras_scaler.pkl"))
 
 category_mappings = {
     "sex": {"female": 0, "male": 1},
