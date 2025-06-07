@@ -283,3 +283,67 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-06-06 19:53:36,808] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
 [2025-06-06 19:53:36,809] WARNING in log: Bad Request: /predict/
 [2025-06-06 19:53:36,809] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:03:24,497] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 21:05:30,238] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:05:30,239] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:05:30,240] ERROR in views: Prediction error: could not convert string to float: np.str_('C')
+[2025-06-06 21:05:30,241] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:05:30,241] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:05:54,922] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:05:54,922] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:05:54,922] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:05:54,923] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:05:54,923] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:20:38,305] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 21:20:50,819] WARNING in log: Not Found: /
+[2025-06-06 21:20:50,820] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-06-06 21:20:58,547] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:20:58,548] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:20:58,549] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:20:58,549] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:20:58,550] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:21:02,330] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:21:02,330] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:21:02,330] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:21:02,331] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:21:02,331] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:21:04,291] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:21:04,292] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:21:04,293] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:21:04,294] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:21:04,295] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:28:40,214] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 21:28:49,630] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:28:49,631] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:28:49,631] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:28:49,632] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:28:49,633] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:28:57,683] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:28:57,683] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:28:57,683] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:28:57,683] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:28:57,684] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:35:34,826] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-06 21:35:46,984] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:35:46,984] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'A', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-06 21:35:46,985] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:35:46,986] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:35:46,986] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-06 21:43:54,200] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:43:54,202] ERROR in views: Prediction error: JSON parse error - Expecting property name enclosed in double quotes: line 12 column 19 (char 216)
+[2025-06-06 21:43:54,202] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:43:54,203] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 110
+[2025-06-06 21:44:10,683] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-06 21:44:10,683] INFO in views: Received input: {'pclass': 3, 'sex': 'male', 'age': 22.0, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'class': 'Third', 'who': 'man', 'adult_male': 1, 'deck': 'A', 'embark_town': 'Southampton', 'alone': 0}
+[2025-06-06 21:44:10,684] ERROR in views: Prediction error: could not convert string to float: np.str_('A')
+[2025-06-06 21:44:10,684] WARNING in log: Bad Request: /predict/
+[2025-06-06 21:44:10,684] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 59
+[2025-06-07 19:29:39,609] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-07 19:29:55,013] WARNING in log: Not Found: /
+[2025-06-07 19:29:55,014] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-06-07 19:29:55,089] WARNING in log: Not Found: /favicon.ico
+[2025-06-07 19:29:55,090] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-07 19:30:33,623] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-07 19:30:33,624] INFO in views: Received input: {'pclass': 3, 'sex': 'male', 'age': 22.0, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'class': 'Third', 'who': 'man', 'adult_male': 1, 'deck': 'A', 'embark_town': 'Southampton', 'alone': 0}
+[2025-06-07 19:30:33,798] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
+[2025-06-07 19:30:33,799] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
