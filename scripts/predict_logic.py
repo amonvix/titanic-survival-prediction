@@ -9,9 +9,11 @@ category_mappings = {
     "embarked": {"C": 0, "Q": 1, "S": 2},
     "class": {"First": 0, "Second": 1, "Third": 2},
     "who": {"child": 0, "man": 1, "woman": 2},
+    "deck": {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "Unknown": 7},
     "embark_town": {"Cherbourg": 0, "Queenstown": 1, "Southampton": 2},
-    "alive": {"no": 0, "yes": 1},
+    "alive": {"no": 0, "yes": 1}
 }
+
 
 
 def preprocess_input(raw_data: dict) -> dict:
