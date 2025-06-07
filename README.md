@@ -32,7 +32,7 @@ titanic-survival-prediction/
 ## ✅ Completed Tasks
 
 - [x] Project setup and virtual environment
-- [x] Required libraries installed and frozen in `requirements.txt`
+- [x] Required libraries installed and frozen in requirements.txt
 - [x] Raw data collected and saved to local directory
 - [x] Dataset analyzed with Pandas and statistics reviewed
 - [x] Null values handled and categorical features encoded
@@ -41,7 +41,7 @@ titanic-survival-prediction/
 ## ✅ Completed Tasks
 
 ## 📊 3. Exploration and Visualization
-- [x] Created plots using Seaborn and Matplotlib (`visualize_dataset.py`)
+- [x] Created plots using Seaborn and Matplotlib (visualize_dataset.py)
 - Survival count (bar plot)
 - Age distribution (histogram with KDE)
 - Survival by sex (countplot with hue)
@@ -49,9 +49,9 @@ titanic-survival-prediction/
 - [x] Extracted visual insights and initial patterns
 
 ## 🧠 4. Modeling with Scikit-learn
-- [x] Cleaned and converted all features to numeric format (`clean_dataset.py`)
-- [x] Performed train/test split (80/20) using `train_test_split`
-- [x] Trained logistic regression model (`train_model.py`)
+- [x] Cleaned and converted all features to numeric format (clean_dataset.py)
+- [x] Performed train/test split (80/20) using train_test_split
+- [x] Trained logistic regression model (train_model.py)
 - [x] Evaluated model using:
 - Accuracy
 - Precision
@@ -71,7 +71,7 @@ titanic-survival-prediction/
 - [ ] Train and compare results side-by-side
 
 ## 🌐 7. Deployment (Bonus)
-- [ ] Save trained models using `joblib` or `keras.models.save_model`
+- [ ] Save trained models using joblib or keras.models.save_model
 - [ ] Wrap prediction logic in a Django REST API (optional)
 - [ ] Deploy via Docker or Render (optional)
 
@@ -79,7 +79,7 @@ titanic-survival-prediction/
 
 ## 🧬 How to Run Locally
 
-```bash
+bash
 # Step 1: Activate virtual environment
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
@@ -90,3 +90,5 @@ python scripts/clean_dataset.py
 python scripts/visualize_dataset.py
 
 This project is part of a broader portfolio aimed at showcasing skills in data analysis, model development, and clean code practices for real-world machine learning scenarios.
+
+
