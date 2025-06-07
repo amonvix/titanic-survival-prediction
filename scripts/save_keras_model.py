@@ -29,7 +29,7 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 model.fit(X_train, y_train, epochs=100, batch_size=32, verbose=0)
 
 # Save model and scaler
-model.save("models/keras_model.keras")
+model.save("models/keras_model.h5")
 joblib.dump(scaler, "models/keras_scaler.pkl")
 
 print("✅ Keras model and scaler saved successfully.")

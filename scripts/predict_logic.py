@@ -30,7 +30,7 @@ def preprocess_input(raw_data: dict) -> dict:
 
 
 # Load model and scaler once (lazy init possible later)
-MODEL_PATH = "models/keras_model.keras"
+MODEL_PATH = "models/keras_model.h5"
 SCALER_PATH = "models/keras_scaler.pkl"
 
 model = load_model(MODEL_PATH)
