@@ -22,4 +22,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt || cat /app/req
 
 COPY . .
 
-CMD ["gunicorn", "titanic_project.wsgi:application", "--bind", "0.0.0.0:8080"]
+CMD exec gunicorn titanic_project.wsgi:application --bind 0.0.0.0:8080
+
