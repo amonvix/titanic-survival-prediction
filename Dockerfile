@@ -1,6 +1,6 @@
 # Dockerfile
 
-FROM python:3.12-slim
+FROM python:3.12.0
 RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
