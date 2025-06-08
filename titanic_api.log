@@ -347,3 +347,13 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-06-07 19:30:33,624] INFO in views: Received input: {'pclass': 3, 'sex': 'male', 'age': 22.0, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'class': 'Third', 'who': 'man', 'adult_male': 1, 'deck': 'A', 'embark_town': 'Southampton', 'alone': 0}
 [2025-06-07 19:30:33,798] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
 [2025-06-07 19:30:33,799] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
+[2025-06-08 21:20:13,161] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-08 21:21:09,402] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-08 21:21:09,404] INFO in views: Received input: {'sex': 'male', 'age': 22, 'fare': 7.25, 'class': 'Third', 'embarked': 'S', 'who': 'man', 'deck': 'C', 'alone': 0, 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-08 21:21:09,405] ERROR in views: Prediction error: X has 11 features, but StandardScaler is expecting 13 features as input.
+[2025-06-08 21:21:09,406] WARNING in log: Bad Request: /predict/
+[2025-06-08 21:21:09,410] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 84
+[2025-06-08 21:22:22,933] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-08 21:22:22,936] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-08 21:22:08,488] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
+[2025-06-08 21:22:08,489] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
