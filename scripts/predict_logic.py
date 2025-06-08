@@ -30,11 +30,17 @@ def preprocess_input(raw_data: dict) -> dict:
 
 
 # Load model and scaler once (lazy init possible later)
-MODEL_PATH = "models/keras_model.h5"
-SCALER_PATH = "models/keras_scaler.pkl"
+model = None
+scaler = None
 
-model = load_model(MODEL_PATH)
-scaler = joblib.load(SCALER_PATH)
+def load_assets():
+    global model, scaler
+    if model is None:
+        model = load_model("models/keras_model.h5")
+    if scaler is None:
+        scaler = joblib.load("models/keras_scaler.pkl")
+
+load_assets()
 
 
 def predict_survival(input_data: dict) -> dict:
