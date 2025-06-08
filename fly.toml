@@ -3,7 +3,7 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'titanic-survival-prediction'
+app = "titanic-survival-prediction"
 primary_region = 'iad'
 console_command = '/code/manage.py shell'
 
