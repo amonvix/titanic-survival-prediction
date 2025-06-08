@@ -357,3 +357,137 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 [2025-06-08 21:22:22,936] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
 [2025-06-08 21:22:08,488] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
 [2025-06-08 21:22:08,489] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
+[2025-06-08 23:31:51,284] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-08 23:32:16,979] WARNING in log: Not Found: /
+[2025-06-08 23:32:16,980] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-06-08 23:32:17,090] WARNING in log: Not Found: /favicon.ico
+[2025-06-08 23:32:17,091] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-08 23:32:24,262] WARNING in log: Method Not Allowed: /predict/
+[2025-06-08 23:32:24,262] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 10307
+[2025-06-08 23:32:11,563] WARNING in log: Method Not Allowed: /predict/
+[2025-06-08 23:32:11,563] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 10307
+[2025-06-08 23:32:11,590] WARNING in log: Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+[2025-06-08 23:32:11,591] WARNING in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,596] WARNING in log: Not Found: /static/rest_framework/css/bootstrap.min.css
+[2025-06-08 23:32:11,599] WARNING in log: Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+[2025-06-08 23:32:11,600] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+[2025-06-08 23:32:11,602] WARNING in log: Not Found: /static/rest_framework/css/default.css
+[2025-06-08 23:32:11,604] WARNING in log: Not Found: /static/rest_framework/js/csrf.js
+[2025-06-08 23:32:11,608] WARNING in log: Not Found: /static/rest_framework/css/prettify.css
+[2025-06-08 23:32:11,609] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+[2025-06-08 23:32:11,611] WARNING in log: Not Found: /static/rest_framework/js/ajax-form.js
+[2025-06-08 23:32:11,611] WARNING in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,612] WARNING in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+[2025-06-08 23:32:11,614] WARNING in log: Not Found: /static/rest_framework/js/bootstrap.min.js
+[2025-06-08 23:32:11,616] WARNING in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+[2025-06-08 23:32:11,618] WARNING in log: Not Found: /static/rest_framework/js/prettify-min.js
+[2025-06-08 23:32:11,619] WARNING in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,621] WARNING in log: Not Found: /static/rest_framework/js/default.js
+[2025-06-08 23:32:11,623] WARNING in log: Not Found: /static/rest_framework/js/load-ajax-form.js
+[2025-06-08 23:32:11,625] WARNING in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,625] WARNING in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,625] WARNING in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+[2025-06-08 23:32:11,627] WARNING in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,533] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-08 23:32:33,533] INFO in views: Received input: <QueryDict: {'_content_type': ['application/json'], '_content': ['{\r\n  "sex": "male",\r\n  "age": 22,\r\n  "sibsp": 1,\r\n  "parch": 0,\r\n  "fare": 7.25,\r\n  "embarked": "S",\r\n  "who": "man",\r\n  "alone": 0,\r\n  "class": "Third",\r\n  "deck": "C",\r\n  "embark_town": "Southampton",\r\n  "pclass": 3,\r\n  "adult_male": 1\r\n}']}>
+[2025-06-08 23:32:33,534] ERROR in views: Prediction error: could not convert string to float: np.str_('application/json')
+[2025-06-08 23:32:33,538] WARNING in log: Bad Request: /predict/
+[2025-06-08 23:32:33,538] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 10335
+[2025-06-08 23:32:33,564] WARNING in log: Not Found: /static/rest_framework/css/bootstrap.min.css
+[2025-06-08 23:32:33,565] WARNING in log: Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+[2025-06-08 23:32:33,567] WARNING in log: Not Found: /static/rest_framework/css/prettify.css
+[2025-06-08 23:32:33,567] WARNING in log: Not Found: /static/rest_framework/css/default.css
+[2025-06-08 23:32:33,568] WARNING in log: Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+[2025-06-08 23:32:33,569] WARNING in log: Not Found: /static/rest_framework/js/ajax-form.js
+[2025-06-08 23:32:33,569] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+[2025-06-08 23:32:33,570] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+[2025-06-08 23:32:33,573] WARNING in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+[2025-06-08 23:32:33,574] WARNING in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,575] WARNING in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+[2025-06-08 23:32:33,575] WARNING in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,577] WARNING in log: Not Found: /static/rest_framework/js/csrf.js
+[2025-06-08 23:32:33,579] WARNING in log: Not Found: /static/rest_framework/js/bootstrap.min.js
+[2025-06-08 23:32:33,580] WARNING in log: Not Found: /static/rest_framework/js/default.js
+[2025-06-08 23:32:33,581] WARNING in log: Not Found: /static/rest_framework/js/prettify-min.js
+[2025-06-08 23:32:33,582] WARNING in log: Not Found: /static/rest_framework/js/load-ajax-form.js
+[2025-06-08 23:32:33,583] WARNING in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,585] WARNING in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,586] WARNING in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,586] WARNING in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:33,587] WARNING in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,095] WARNING in log: Method Not Allowed: /predict/
+[2025-06-08 23:33:01,096] WARNING in basehttp: "GET /predict/? HTTP/1.1" 405 10307
+[2025-06-08 23:33:01,122] WARNING in log: Not Found: /static/rest_framework/css/bootstrap.min.css
+[2025-06-08 23:33:01,123] WARNING in log: Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+[2025-06-08 23:33:01,124] WARNING in log: Not Found: /static/rest_framework/css/prettify.css
+[2025-06-08 23:33:01,125] WARNING in log: Not Found: /static/rest_framework/css/default.css
+[2025-06-08 23:33:01,126] WARNING in log: Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+[2025-06-08 23:33:01,127] WARNING in log: Not Found: /static/rest_framework/js/ajax-form.js
+[2025-06-08 23:33:01,129] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+[2025-06-08 23:33:01,131] WARNING in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+[2025-06-08 23:33:01,131] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+[2025-06-08 23:33:01,132] WARNING in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+[2025-06-08 23:33:01,133] WARNING in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,133] WARNING in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,134] WARNING in log: Not Found: /static/rest_framework/js/csrf.js
+[2025-06-08 23:33:01,136] WARNING in log: Not Found: /static/rest_framework/js/bootstrap.min.js
+[2025-06-08 23:33:01,137] WARNING in log: Not Found: /static/rest_framework/js/prettify-min.js
+[2025-06-08 23:33:01,138] WARNING in log: Not Found: /static/rest_framework/js/default.js
+[2025-06-08 23:33:01,140] WARNING in log: Not Found: /static/rest_framework/js/load-ajax-form.js
+[2025-06-08 23:33:01,141] WARNING in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,141] WARNING in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,142] WARNING in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,143] WARNING in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+[2025-06-08 23:33:01,143] WARNING in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:48,994] WARNING in log: Method Not Allowed: /predict/
+[2025-06-08 23:32:48,995] WARNING in basehttp: "GET /predict/? HTTP/1.1" 405 10307
+[2025-06-08 23:32:49,017] WARNING in log: Not Found: /static/rest_framework/css/bootstrap.min.css
+[2025-06-08 23:32:49,018] WARNING in log: Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+[2025-06-08 23:32:49,021] WARNING in log: Not Found: /static/rest_framework/css/prettify.css
+[2025-06-08 23:32:49,022] WARNING in log: Not Found: /static/rest_framework/css/default.css
+[2025-06-08 23:32:49,022] WARNING in log: Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+[2025-06-08 23:32:49,023] WARNING in log: Not Found: /static/rest_framework/js/ajax-form.js
+[2025-06-08 23:32:49,024] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,025] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,027] WARNING in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,027] WARNING in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,028] WARNING in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,030] WARNING in log: Not Found: /static/rest_framework/js/csrf.js
+[2025-06-08 23:32:49,031] WARNING in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,033] WARNING in log: Not Found: /static/rest_framework/js/bootstrap.min.js
+[2025-06-08 23:32:49,035] WARNING in log: Not Found: /static/rest_framework/js/prettify-min.js
+[2025-06-08 23:32:49,036] WARNING in log: Not Found: /static/rest_framework/js/default.js
+[2025-06-08 23:32:49,037] WARNING in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,038] WARNING in log: Not Found: /static/rest_framework/js/load-ajax-form.js
+[2025-06-08 23:32:49,039] WARNING in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,040] WARNING in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,041] WARNING in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,042] WARNING in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,762] WARNING in log: Method Not Allowed: /predict/
+[2025-06-08 23:32:49,763] WARNING in basehttp: "GET /predict/? HTTP/1.1" 405 10307
+[2025-06-08 23:32:49,785] WARNING in log: Not Found: /static/rest_framework/css/bootstrap.min.css
+[2025-06-08 23:32:49,786] WARNING in log: Not Found: /static/rest_framework/css/bootstrap-tweaks.css
+[2025-06-08 23:32:49,787] WARNING in log: Not Found: /static/rest_framework/css/prettify.css
+[2025-06-08 23:32:49,788] WARNING in log: Not Found: /static/rest_framework/css/default.css
+[2025-06-08 23:32:49,788] WARNING in log: Not Found: /static/rest_framework/js/jquery-3.7.1.min.js
+[2025-06-08 23:32:49,789] WARNING in log: Not Found: /static/rest_framework/js/ajax-form.js
+[2025-06-08 23:32:49,791] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,792] WARNING in basehttp: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,793] WARNING in basehttp: "GET /static/rest_framework/css/prettify.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,794] WARNING in basehttp: "GET /static/rest_framework/css/default.css HTTP/1.1" 404 179
+[2025-06-08 23:32:49,794] WARNING in basehttp: "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,796] WARNING in basehttp: "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,797] WARNING in log: Not Found: /static/rest_framework/js/bootstrap.min.js
+[2025-06-08 23:32:49,799] WARNING in log: Not Found: /static/rest_framework/js/csrf.js
+[2025-06-08 23:32:49,800] WARNING in log: Not Found: /static/rest_framework/js/prettify-min.js
+[2025-06-08 23:32:49,802] WARNING in log: Not Found: /static/rest_framework/js/default.js
+[2025-06-08 23:32:49,803] WARNING in log: Not Found: /static/rest_framework/js/load-ajax-form.js
+[2025-06-08 23:32:49,804] WARNING in basehttp: "GET /static/rest_framework/js/csrf.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,804] WARNING in basehttp: "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,806] WARNING in basehttp: "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,806] WARNING in basehttp: "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 404 179
+[2025-06-08 23:32:49,807] WARNING in basehttp: "GET /static/rest_framework/js/default.js HTTP/1.1" 404 179
+[2025-06-08 23:33:15,643] INFO in views: 🔥 PredictView: POST method accessed
+[2025-06-08 23:33:15,643] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-08 23:33:15,806] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
+[2025-06-08 23:33:15,807] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 34
