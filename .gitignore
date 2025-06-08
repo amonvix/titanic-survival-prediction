@@ -14,5 +14,5 @@ __pycache__/
 
 # TensorFlow model logs
 logs/
-*.h5
+# *.h5
 *.pb
