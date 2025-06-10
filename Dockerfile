@@ -1,27 +1,24 @@
-# Dockerfile
+# Base image com Python
+FROM python:3.11-slim
 
-FROM python:3.12.3
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    libffi-dev \
-    libssl-dev \
-    libblas-dev \
-    liblapack-dev \
-    gfortran \
-    && apt-get clean
-
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
+# Diretório de trabalho
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --upgrade pip && pip install -r requirements.txt || cat /app/requirements.txt
+# Copiar arquivos de dependências primeiro para cache de build
+COPY requirements.txt .
 
+# Instalar dependências
+RUN pip install --no-cache-dir -r requirements.txt
 
+# Copiar o restante do projeto
 COPY . .
 
-CMD ["gunicorn", "titanic_project.wsgi:application", "--bind", "0.0.0.0:8080"]
+# Expor porta padrão do Django
+EXPOSE 8000
 
+# Comando de execução com Gunicorn
+CMD ["gunicorn", "titanic_project.wsgi:application", "--bind", "0.0.0.0:8000"]
 
+COPY entrypoint.sh .
+
+ENTRYPOINT ["./entrypoint.sh"]
