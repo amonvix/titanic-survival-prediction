@@ -53,10 +53,10 @@ load_prediction_components()
 @csrf_exempt
 def predict(request):
     if request.method == "POST":
-        model, scaler = load_prediction_components()
+        scaler = load_prediction_components()
 
-        if model is None or scaler is None:
-            return JsonResponse({"error": "Model or scaler not loaded. Please check server logs."}, status=500)
+        if scaler is None:
+            return JsonResponse({"error": "Scaler not loaded. Please check server logs."}, status=500)
 
         try:
             data = json.loads(request.body)
