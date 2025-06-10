@@ -1,9 +1,10 @@
 # scripts/predict_logic.py
-
+import os
 import numpy as np
 import joblib
 from keras.models import load_model
 
+# Category encoding map
 category_mappings = {
     "sex": {"female": 0, "male": 1},
     "embarked": {"C": 0, "Q": 1, "S": 2},
@@ -11,10 +12,17 @@ category_mappings = {
     "who": {"child": 0, "man": 1, "woman": 2},
     "deck": {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "Unknown": 7},
     "embark_town": {"Cherbourg": 0, "Queenstown": 1, "Southampton": 2},
-    "alive": {"no": 0, "yes": 1}
+    "alive": {"no": 0, "yes": 1},
 }
 
+# Paths
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCALER_PATH = os.path.join(BASE_DIR, "models", "keras_scaler.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "models", "model.h5")
 
+# Lazy-loaded scaler
+model = load_model(MODEL_PATH)
+scaler = joblib.load(SCALER_PATH)
 
 def preprocess_input(raw_data: dict) -> dict:
     processed = {}
@@ -29,26 +37,7 @@ def preprocess_input(raw_data: dict) -> dict:
     return processed
 
 
-# Load model and scaler once (lazy init possible later)
-model = None
-scaler = None
-
-def load_assets():
-    global model, scaler
-    if model is None:
-        model = load_model("models/keras_model.h5")
-    if scaler is None:
-        scaler = joblib.load("models/keras_scaler.pkl")
-
-load_assets()
-
-
 def predict_survival(input_data: dict) -> dict:
-    """
-    Predicts survival using the trained Keras model.
-    :param input_data: dict with input features
-    :return: dict with prediction result
-    """
     input_data = preprocess_input(input_data)
     features = np.array([list(input_data.values())])
     features_scaled = scaler.transform(features)

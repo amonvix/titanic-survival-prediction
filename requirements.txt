@@ -1,9 +1,18 @@
-Django==5.2.1
-djangorestframework
-numpy==1.24.3
-joblib
-scikit-learn
-tensorflow==2.15.0
+# Core
+Django>=4.2
 gunicorn
+
+# ML
+numpy
+pandas
+scikit-learn
+tensorflow
+
+# API
+djangorestframework
+
+# CORS (caso vá usar com frontend separado)
 django-cors-headers
-uvicorn[standard]
+
+# Fly.io (opcional: para detectar bind automático no deploy)
+whitenoise
