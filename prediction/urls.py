@@ -1,10 +1,9 @@
 # prediction/urls.py
 
 from django.urls import path
-from .views import PredictView, form_view
-
+from .views import predict_view, form_view
 
 urlpatterns = [
-    path("", form_view),  # / → mostra formulário
-    path("predict/", PredictView.as_view(), name="predict"),
+    path("predict/", predict_view, name="predict"),
+    path("", form_view, name="form"),
 ]
