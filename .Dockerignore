@@ -1,13 +1,38 @@
+# Ignora diretórios locais e temporários
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.sqlite3
-env/
-venv/
-.idea/
 *.log
-.DS_Store
+*.sqlite3
+*.db
+
+# Ignora ambientes virtuais
+venv/
+env/
+.venv/
+
+# Ignora arquivos de configuração locais
+.env
 *.env
-.git
+
+# Ignora dados e caches
+.cache/
+*.h5
+*.pkl
+*.joblib
+*.csv
+*.tsv
+
+# Ignora arquivos de IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Ignora repositórios Git
+.git/
 .gitignore
+
+# Ignora arquivos do sistema
+.DS_Store
+Thumbs.db
