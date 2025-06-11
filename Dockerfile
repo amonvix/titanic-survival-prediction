@@ -1,27 +1,32 @@
-# Base image com Python
 FROM python:3.11-slim
 
 # Diretório de trabalho
 WORKDIR /app
 
-# Copiar arquivos de dependências primeiro para cache de build
+# Instala dependências do sistema
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libglib2.0-0 \
+    libsm6 \
+    libxrender1 \
+    libxext6 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copia requirements e instala as libs Python
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Instalar dependências
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copiar o restante do projeto
+# Copia todo o projeto
 COPY . .
 
-# Copiar o script de inicialização antes do ENTRYPOINT
-COPY entrypoint.sh ./entrypoint.sh
-RUN chmod +x ./entrypoint.sh
+# Permissão para script de entrada
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
-# Expor porta padrão do Django
+# Porta exposta (padrão Gunicorn)
 EXPOSE 8000
 
-# Definir o entrypoint e o comando padrão
+# Comando de inicialização
 ENTRYPOINT ["./entrypoint.sh"]
-CMD ["gunicorn", "titanic_project.wsgi:application", "--bind", "0.0.0.0:8000"]
-
