@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 import os
-import logging
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,12 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-^)=rm%zwij-ao^z)s9qa%g+m3-^rij26_%6^cdik+xd9#2=inp"
-
+SECRET_KEY = "fNdidkGN4ockYg5zHIukOIwC02haRcaYSx58Nj1JoUYJk1E5Jl"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["*", "titanic-survival-prediction.fly.dev", "titanic-survival-prediction.fly.dev:8000"]
 
 # Application definition
 
