@@ -1,4 +1,4 @@
-[![API online](https://img.shields.io/badge/🔮%20Titanic%20IA-Online-brightgreen)](https://titanic-api-ezpf.onrender.com)
+[![Fly.io - Live](https://img.shields.io/badge/Fly.io-Live-blue?logo=fly.io&logoColor=white&style=for-the-badge)](https://titanic-survival-prediction.fly.dev)
 
 # 🧠 Titanic Survival Prediction – Data Science Project
 
