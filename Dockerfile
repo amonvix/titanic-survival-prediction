@@ -26,7 +26,7 @@ COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
 # Porta exposta (padrão Gunicorn)
-EXPOSE 8000
+EXPOSE 8001
 
 # Comando de inicialização
 ENTRYPOINT ["./entrypoint.sh"]
