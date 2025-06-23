@@ -9,5 +9,5 @@ python manage.py loaddata initial_data.json || true
 
 
 
-exec gunicorn titanic_project.wsgi:application --bind 0.0.0.0:8001
+exec gunicorn titanic_project.wsgi:application --bind 0.0.0.0:80
 
