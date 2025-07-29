@@ -1,22 +1,29 @@
-# Use uma imagem base oficial do Python. A versão "slim" é mais leve.
 FROM python:3.10-slim
 
-# Defina o diretório de trabalho dentro do container
+# Define workdir
 WORKDIR /app
 
-# Copie todos os arquivos do seu projeto para dentro do container
-# Isso inclui app.py, requirements.txt, model.pkl e preprocessor.pkl
-COPY . .
+# Evita cache do pip e reduz tamanho
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Instale as dependências listadas no requirements.txt
+# Instala dependências de sistema
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libssl-dev \
+    libffi-dev \
+    python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copia requirements e instala
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# O Streamlit, por padrão, roda na porta 8501. Precisamos "expor" essa porta.
-EXPOSE 8501
+# Copia todo o projeto
+COPY . .
 
-# Adicione um health check para a Fly.io saber se seu app está saudável.
-# O Streamlit tem um endpoint de saúde interno que podemos usar.
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+# Porta usada pelo Fly
+EXPOSE 8080
 
-# O comando para iniciar a aplicação Streamlit quando o container iniciar.
-CMD ["streamlit", "run", "app.py"]
+# Comando de produção com Gunicorn
+CMD ["gunicorn", "app.wsgi:application", "--bind", "0.0.0.0:8080"]
