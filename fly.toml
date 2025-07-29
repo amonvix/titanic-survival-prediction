@@ -1,30 +1,24 @@
-# fly.toml app configuration file generated for titanic-survival-prediction on 2025-06-10T18:19:33-03:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+# Escolha um nome único para seu app.
+app = "titanic-survival-amon"
+primary_region = "gru"
 
-app = 'titanic-survival-prediction'
-primary_region = 'iad'
-console_command = '/code/manage.py shell'
-
+# Esta seção diz à Fly.io para usar nosso Dockerfile para construir a imagem.
 [build]
 
-[env]
-  PORT = 8000
-
+# Esta seção configura como o tráfego web vai chegar ao seu app.
 [http_service]
-  internal_port = 8000
+  # A porta INTERNA deve ser a mesma que expomos no Dockerfile (8501).
+  internal_port = 8501
   force_https = true
-  auto_stop_machines = 'stop'
+  auto_stop_machines = true
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
 
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
-
-[[statics]]
-  guest_path = '/code/static'
-  url_prefix = '/static/'
+# Configura o health check que a Fly.io vai usar.
+# O path deve corresponder ao que definimos no Dockerfile.
+[[http_service.checks]]
+  interval = "10s"
+  timeout = "2s"
+  grace_period = "5s"
+  method = "GET"
+  path = "/_stcore/health"
