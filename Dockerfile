@@ -1,32 +1,22 @@
-FROM python:3.11-slim
+# Use uma imagem base oficial do Python. A versão "slim" é mais leve.
+FROM python:3.10-slim
 
-# Diretório de trabalho
+# Defina o diretório de trabalho dentro do container
 WORKDIR /app
 
-# Instala dependências do sistema
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    libglib2.0-0 \
-    libsm6 \
-    libxrender1 \
-    libxext6 \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copia requirements e instala as libs Python
-COPY requirements.txt .
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
-
-# Copia todo o projeto
+# Copie todos os arquivos do seu projeto para dentro do container
+# Isso inclui app.py, requirements.txt, model.pkl e preprocessor.pkl
 COPY . .
 
-# Permissão para script de entrada
-COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
+# Instale as dependências listadas no requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Porta exposta (padrão Gunicorn)
-EXPOSE 8001
+# O Streamlit, por padrão, roda na porta 8501. Precisamos "expor" essa porta.
+EXPOSE 8501
 
-# Comando de inicialização
-ENTRYPOINT ["./entrypoint.sh"]
+# Adicione um health check para a Fly.io saber se seu app está saudável.
+# O Streamlit tem um endpoint de saúde interno que podemos usar.
+HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+
+# O comando para iniciar a aplicação Streamlit quando o container iniciar.
+CMD ["streamlit", "run", "app.py"]
