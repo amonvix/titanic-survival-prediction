@@ -1,17 +1,21 @@
-# fly.toml app configuration file generated for titanic-survival-amon on 2025-07-29T14:51:17-03:00
+# fly.toml app configuration file generated for titanic-survival-prediction on 2025-07-29T17:58:35-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'titanic-survival-amon'
+app = 'titanic-survival-prediction'
 primary_region = 'gru'
+console_command = '/code/manage.py shell'
 
 [build]
 
+[env]
+  PORT = '8000'
+
 [http_service]
-  internal_port = 8501
+  internal_port = 8000
   force_https = true
-  auto_stop_machines = true # 'true' é o valor mais comum aqui
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
 
@@ -23,6 +27,10 @@ primary_region = 'gru'
     path = '/_stcore/health'
 
 [[vm]]
-memory = '1gb'
-cpu_kind = 'shared'
-cpus = 1
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[[statics]]
+  guest_path = '/code/static'
+  url_prefix = '/static/'
