@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
 ]
 
-ROOT_URLCONF = "titanic_project.urls"
+ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "titanic_project.wsgi.application"
+WSGI_APPLICATION = "app.wsgi.application"
 
 
 # Database
