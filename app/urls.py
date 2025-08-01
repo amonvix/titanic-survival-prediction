@@ -1,4 +1,4 @@
-# titanic_project/urls.py
+# app/urls.py
 from .views import health_check
 from django.contrib import admin
 from django.urls import path, include
