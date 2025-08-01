@@ -19,4 +19,4 @@ fi
 
 # 4. Inicia o servidor Gunicorn com o worker Uvicorn (para ASGI)
 echo "Starting Gunicorn server..."
-exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT app.asgi:application
+exec gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT titanic_project.asgi:application
