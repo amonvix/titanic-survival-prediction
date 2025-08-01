@@ -16,3 +16,6 @@ __pycache__/
 logs/
 # *.h5
 *.pb
+
+#collect static files
+staticfiles/
