@@ -1,1 +1,1 @@
-web: gunicorn titanic_project.wsgi --log-file -
+web: web: sh ./entrypoint.sh

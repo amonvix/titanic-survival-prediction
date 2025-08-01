@@ -2,7 +2,7 @@
 import os
 import numpy as np
 import joblib
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 
 # Category encoding map
 category_mappings = {
@@ -23,6 +23,7 @@ MODEL_PATH = os.path.join(BASE_DIR, "models", "model.h5")
 # Lazy-loaded scaler
 model = load_model(MODEL_PATH)
 scaler = joblib.load(SCALER_PATH)
+
 
 def preprocess_input(raw_data: dict) -> dict:
     processed = {}

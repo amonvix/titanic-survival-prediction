@@ -4,10 +4,11 @@ import numpy as np
 import joblib
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 
 # Base dir
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 # Category mappings
 category_mappings = {
@@ -17,8 +18,9 @@ category_mappings = {
     "who": {"child": 0, "man": 1, "woman": 2},
     "deck": {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "Unknown": 7},
     "embark_town": {"Cherbourg": 0, "Queenstown": 1, "Southampton": 2},
-    "pclass": {1: 0, 2: 1, 3: 2}, # Manter se pclass for categórico
-    "sibsp": {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 6} # Manter se sibsp for categórico
+    "pclass": {1: 0, 2: 1, 3: 2},  # Manter se pclass for categórico
+    # Manter se sibsp for categórico
+    "sibsp": {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 6}
 }
 
 # Define the expected feature order (deve ser consistente com o treinamento do modelo)
@@ -30,6 +32,7 @@ FEATURE_ORDER = [
 # Variáveis globais para o modelo e scaler
 MODEL = None
 SCALER = None
+
 
 def load_prediction_components():
     """Carrega o modelo Keras e o scaler Joblib."""
@@ -47,8 +50,17 @@ def load_prediction_components():
             SCALER = None
     return MODEL, SCALER
 
+
 # Carrega os componentes quando o módulo é importado
 load_prediction_components()
+
+# health check
+
+
+def health_check(request):
+    """View simples para o health check do Fly.io"""
+    return JsonResponse({"status": "ok"})
+
 
 @csrf_exempt
 def predict(request):
@@ -88,7 +100,8 @@ def predict(request):
                 try:
                     # Tenta converter para float (para 'age', 'fare') ou int (para outros numéricos binários/contagens)
                     if isinstance(value, (int, float)):
-                        input_features.append(float(value)) # Converte tudo para float para consistência com o scaler
+                        # Converte tudo para float para consistência com o scaler
+                        input_features.append(float(value))
                     elif isinstance(value, str):
                         # Trata strings que deveriam ser numéricas (ex: "25.0")
                         input_features.append(float(value))
@@ -101,7 +114,7 @@ def predict(request):
         try:
             input_data = np.array([input_features])
             input_scaled = scaler.transform(input_data)
-            prediction = model.predict(input_scaled)
+            prediction = MODEL.predict(input_scaled)
             survived = bool(prediction[0][0] > 0.5)
             confidence = float(prediction[0][0])
 
