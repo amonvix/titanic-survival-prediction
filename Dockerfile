@@ -1,29 +1,43 @@
-FROM python:3.10-slim
+# Etapa 1: Build de dependências (evita imagem gigante)
+FROM python:3.10-slim AS builder
 
-# Define workdir
+# Diretório de trabalho
 WORKDIR /app
 
-# Evita cache do pip e reduz tamanho
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
-# Instala dependências de sistema
-RUN apt-get update && apt-get install -y \
+# Instalar dependências do sistema necessárias para compilar pacotes Python
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    libssl-dev \
-    libffi-dev \
-    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copia requirements e instala
+# Copiar apenas requirements primeiro (melhora cache do Docker)
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia todo o projeto
+# Criar venv para instalação isolada (reduz tamanho final)
+RUN python -m venv /opt/venv \
+    && /opt/venv/bin/pip install --no-cache-dir --upgrade pip \
+    && /opt/venv/bin/pip install --no-cache-dir -r requirements.txt
+
+# Etapa 2: Imagem final enxuta
+FROM python:3.10-slim
+
+# Adicionar venv ao PATH
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Diretório de trabalho
+WORKDIR /app
+
+# Copiar venv da etapa anterior
+COPY --from=builder /opt/venv /opt/venv
+
+# Copiar o projeto
 COPY . .
 
-# Porta usada pelo Fly
-EXPOSE 8080
+# Variáveis Fly.io
+EXPOSE 8000
+ENV PORT 8000
 
-# Comando de produção com Gunicorn
-CMD ["gunicorn", "app.wsgi:application", "--bind", "0.0.0.0:8080"]
+# Coletar arquivos estáticos (caso use admin)
+RUN python manage.py collectstatic --noinput || true
+
+# Comando para iniciar Gunicorn com UvicornWorker
+CMD ["gunicorn", "app.asgi:application", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
