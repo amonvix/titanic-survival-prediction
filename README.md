@@ -1,5 +1,7 @@
 [![Fly.io - Live](https://img.shields.io/badge/Fly.io-Live-blue?logo=fly.io&logoColor=white&style=for-the-badge)](https://titanic-survival-prediction.fly.dev)
 
+# para acessar e testar o app clique no link e aguarde a VM iniciar: https://titanic-survival-prediction.fly.dev
+
 # 🧠 Titanic Survival Prediction – Data Science Project
 
 This project uses a structured machine learning pipeline to predict passenger survival on the Titanic, using open data and popular Python libraries.
