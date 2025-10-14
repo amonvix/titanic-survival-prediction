@@ -1,96 +1,166 @@
-[![Fly.io - Live](https://img.shields.io/badge/Fly.io-Live-blue?logo=fly.io&logoColor=white&style=for-the-badge)](https://titanic-survival-prediction.fly.dev)
+# Titanic Survival Prediction
 
-# para acessar e testar o app clique no link e aguarde a VM iniciar: https://titanic-survival-prediction.fly.dev
+[![Status](https://img.shields.io/badge/status-live-brightgreen)](#)  
+[![License](https://img.shields.io/github/license/Amonvix/titanic-survival-prediction)](#)  
+[![Python](https://img.shields.io/badge/python-3.10-blue)](#)  
+[![FastAPI](https://img.shields.io/badge/fastapi-0.95-brightgreen)](#)  
+[![TensorFlow](https://img.shields.io/badge/tensorflow-2.x-orange)](#)  
 
-# 🧠 Titanic Survival Prediction – Data Science Project
+## Overview
 
-This project uses a structured machine learning pipeline to predict passenger survival on the Titanic, using open data and popular Python libraries.
+This project is a **machine learning-driven API** built with **FastAPI** to predict the survival probability of Titanic passengers. The model is trained with features like age, class, sex, fare, family relations, and port of embarkation.  
+Deployed at **Fly.io**, the endpoint `/predict/` accepts JSON payload and returns survival predictions.
 
-## 📚 Technologies Used
+## Demo / Live
 
-- **Python** (v3.12)
-- **Pandas**, **NumPy** – data manipulation
-- **Matplotlib**, **Seaborn** – data visualization
-- **Scikit-learn** – machine learning
-- **TensorFlow**, **Keras**, **PyTorch** – deep learning (to be added)
-- **Jupyter** – interactive development
+Access the live app here:  
+🔗 https://titanic-survival-prediction.fly.dev/
 
-## 📁 Project Structure
+Example request:
 
-titanic-survival-prediction/
-├── data/
-│ ├── titanic.csv # Raw dataset
-│ └── titanic_clean.csv # Cleaned dataset
-├── scripts/
-│ ├── load_dataset.py # Download and save dataset
-│ ├── analyze_dataset.py # Initial analysis and profiling
-│ ├── clean_dataset.py # Preprocessing and feature formatting
-│ └── visualize_dataset.py # Exploratory visualizations
-├── requirements.txt
-├── README.md
-└── venv/
+```bash
+curl -X POST https://titanic-survival-prediction.fly.dev/predict/ \
+  -H "Content-Type: application/json" \
+  -d '{
+        "age": 28,
+        "sex": "male",
+        "pclass": 3,
+        "sibsp": 0,
+        "parch": 0,
+        "fare": 7.25,
+        "embarked": "Southampton",
+        "deck": "Unknown"
+      }'
+
+{
+  "survived_probability": 0.237,
+  "survived": false
+}
+| Component                | Technology                |
+| ------------------------ | ------------------------- |
+| API                      | FastAPI                   |
+| Model                    | TensorFlow / scikit-learn |
+| Data Processing          | pandas, NumPy             |
+| Containerization         | Docker                    |
+| DevOps / Hosting         | Fly.io                    |
+| CI/CD (planned)          | GitHub Actions            |
+| Infrastructure (planned) | Terraform                 |
+
+[ Client / UI ] → HTTP JSON → [ FastAPI + Prediction ] → [ ML model loaded ] → Response
+
+flowchart LR
+    subgraph Dev["Dev Laptop"]
+        C[Code: FastAPI + TensorFlow]
+        T[Unit/API Tests]
+    end
+
+    C -->|git push| R[(GitHub Repo)]
+
+    subgraph CI["GitHub Actions (CI/CD)"]
+        A1[Lint & Type Check\nruff/mypy]
+        A2[Tests\npytest + coverage]
+        A3[Security Scan\npip-audit/trivy]
+        A4[Build Docker Image]
+        A5[Tag & Push Image\nGHCR]
+        A6[Deploy to Fly.io\nflyctl]
+        A7[AWS Check (Opcional)\nOIDC -> IAM Role\nPush Image p/ ECR ou Artefato p/ S3]
+    end
+
+    R -->|on: push / PR / tag| A1 --> A2 --> A3 --> A4 --> A5 --> A6
+    A5 -->|image: ghcr.io/amonvix/titanic-api:sha| RT[(Runtime: Fly.io)]
+    A4 --> A7
+
+    subgraph Cloud["Runtime"]
+        RT --> Svc[FastAPI /predict]
+        Svc --> Model[(ML Model\nTensorFlow/Keras)]
+        Svc --> Logs[(App Logs)]
+        Svc --> Metrics[(Future: Prom/Grafana)]
+    end
+
+    subgraph AWS["AWS (somente para checagem)"]
+        OIDC[GitHub OIDC Provider] --> IAM[IAM Role c/ Trust OIDC]
+        IAM --> ECR[(ECR Repo)]
+        IAM --> S3[(S3 Artifacts - opcional)]
+    end
+
+    A7 -->|assume-role| IAM
+    A7 --> ECR
+    A7 --> S3
 
 
-## ✅ Completed Tasks
 
-- [x] Project setup and virtual environment
-- [x] Required libraries installed and frozen in requirements.txt
-- [x] Raw data collected and saved to local directory
-- [x] Dataset analyzed with Pandas and statistics reviewed
-- [x] Null values handled and categorical features encoded
-- [x] Core exploratory visualizations plotted and reviewed
+Getting Started (Local)
+Clone this repo:
 
-## ✅ Completed Tasks
+git clone https://github.com/Amonvix/titanic-survival-prediction.git
+cd titanic-survival-prediction
 
-## 📊 3. Exploration and Visualization
-- [x] Created plots using Seaborn and Matplotlib (visualize_dataset.py)
-- Survival count (bar plot)
-- Age distribution (histogram with KDE)
-- Survival by sex (countplot with hue)
-- Feature correlation heatmap
-- [x] Extracted visual insights and initial patterns
+(Optional) Create and activate a virtual environment:
+python3 -m venv venv
+source venv/bin/activate
 
-## 🧠 4. Modeling with Scikit-learn
-- [x] Cleaned and converted all features to numeric format (clean_dataset.py)
-- [x] Performed train/test split (80/20) using train_test_split
-- [x] Trained logistic regression model (train_model.py)
-- [x] Evaluated model using:
-- Accuracy
-- Precision
-- Recall
-- Confusion Matrix
-- Full Classification Report
+Install dependencies:
+pip install -r requirements.txt
 
-## 🧪 Upcoming Tasks
+Run the app:
+uvicorn main:app --reload
 
-## 🤖 5. Deep Learning with TensorFlow/Keras
-- [ ] Build a simple feedforward neural network using Keras
-- [ ] Train and evaluate the model
-- [ ] Plot training and validation curves
-
-## 🔁 6. Comparison with PyTorch
-- [ ] Build an equivalent model using PyTorch
-- [ ] Train and compare results side-by-side
-
-## 🌐 7. Deployment (Bonus)
-- [ ] Save trained models using joblib or keras.models.save_model
-- [ ] Wrap prediction logic in a Django REST API (optional)
-- [ ] Deploy via Docker or Render (optional)
+Test with curl (same block as above) or open localhost:8000/docs to inspect endpoints.
 
 
+Docker
 
-## 🧬 How to Run Locally
+Build and run with Docker:
+docker build -t titanic-api .
+docker run -d -p 8000:8000 titanic-api
+Then test with curl at http://localhost:8000/predict/.
 
-bash
-# Step 1: Activate virtual environment
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+Model Details
 
-# Step 2: Run scripts
-python scripts/load_dataset.py
-python scripts/analyze_dataset.py
-python scripts/clean_dataset.py
-python scripts/visualize_dataset.py
+Trained on the classic Titanic dataset (train + test split, cross-validation).
 
-This project is part of a broader portfolio aimed at showcasing skills in data analysis, model development, and clean code practices for real-world machine learning scenarios.
+Preprocessing includes handling missing values, encoding categorical features (sex, embarked, deck).
+
+Model outputs both a survival probability and a binary decision (threshold 0.5).
+
+Performance metrics (accuracy, ROC-AUC, etc.) can be added here.
+
+
+Future Improvements
+
+Add CI/CD pipelines (GitHub Actions) for testing, linting, and deployment.
+
+Define Terraform modules to provision infra (Fly, DNS, SSL).
+
+Add unit tests, end-to-end tests, and model drift monitoring.
+
+Add metrics & logging (Prometheus, Grafana).
+
+Expand dataset and explore ensemble models.
+
+
+Contributing
+
+Feel free to open issues or send pull requests.
+Please follow the style guidelines and include tests for new features.
+
+License & Credits
+
+Licensed under the MIT License.
+Built by Amon.
+Thanks to open-source libraries and maintainers.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
