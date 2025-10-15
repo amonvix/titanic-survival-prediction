@@ -2,6 +2,7 @@
 
 
 import pandas as pd
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -19,12 +20,11 @@ X_scaled = scaler.fit_transform(X)
 
 # Train/test split
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
-
 # Convert to tensors
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
-y_train_tensor = torch.tensor(y_train.reshape(-1, 1), dtype=torch.float32)
+y_train_tensor = torch.tensor(np.reshape(y_train, (-1, 1)), dtype=torch.float32)
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
-y_test_tensor = torch.tensor(y_test.reshape(-1, 1), dtype=torch.float32)
+y_test_tensor = torch.tensor(np.reshape(y_test, (-1, 1)), dtype=torch.float32)
 
 # Define model
 class TitanicModel(nn.Module):
@@ -41,7 +41,7 @@ class TitanicModel(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-model = TitanicModel(input_dim=X_train.shape[1])
+model = TitanicModel(input_dim=X_train_tensor.shape[1])
 
 # Loss and optimizer
 criterion = nn.BCELoss()
