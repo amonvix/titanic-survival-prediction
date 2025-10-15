@@ -1,0 +1,414 @@
+{
+    "version": "1.1.406",
+    "time": "1760478127102",
+    "generalDiagnostics": [
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/app/views.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"transform\" for class \"tuple[Unknown | None, Any | None]\"\n  Attribute \"transform\" is unknown",
+            "range": {
+                "start": {
+                    "line": 115,
+                    "character": 34
+                },
+                "end": {
+                    "line": 115,
+                    "character": 43
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/app/views.py",
+            "severity": "error",
+            "message": "\"predict\" is not a known attribute of \"None\"",
+            "range": {
+                "start": {
+                    "line": 116,
+                    "character": 31
+                },
+                "end": {
+                    "line": 116,
+                    "character": 38
+                }
+            },
+            "rule": "reportOptionalMemberAccess"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/prediction/apps.py",
+            "severity": "error",
+            "message": "Type \"Literal['django.db.models.BigAutoField']\" is not assignable to declared type \"cached_property\"\n  \"Literal['django.db.models.BigAutoField']\" is not assignable to \"cached_property\"",
+            "range": {
+                "start": {
+                    "line": 5,
+                    "character": 25
+                },
+                "end": {
+                    "line": 5,
+                    "character": 56
+                }
+            },
+            "rule": "reportAssignmentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "No overloads for \"fillna\" match the provided arguments",
+            "range": {
+                "start": {
+                    "line": 15,
+                    "character": 17
+                },
+                "end": {
+                    "line": 15,
+                    "character": 64
+                }
+            },
+            "rule": "reportCallIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"Series | Unknown | DataFrame | Any | ndarray[Any, Unknown] | NDArray[Unknown]\" cannot be assigned to parameter \"value\" of type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\" in function \"fillna\"\n  Type \"Series | Unknown | DataFrame | Any | ndarray[Any, Unknown] | NDArray[Unknown]\" is not assignable to type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\"\n    Type \"NDArray[Unknown]\" is not assignable to type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\"\n      \"ndarray[Any, dtype[Unknown]]\" is incompatible with protocol \"Hashable\"\n        \"__hash__\" is an incompatible type\n        \"__hash__\" is not defined as a ClassVar in protocol\n          Type \"None\" is not assignable to type \"() -> int\"\n      \"ndarray[Any, dtype[Unknown]]\" is not assignable to \"Mapping[Unknown, Unknown]\"\n      \"ndarray[Any, dtype[Unknown]]\" is not assignable to \"Series\"",
+            "range": {
+                "start": {
+                    "line": 15,
+                    "character": 39
+                },
+                "end": {
+                    "line": 15,
+                    "character": 63
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "No overloads for \"fillna\" match the provided arguments",
+            "range": {
+                "start": {
+                    "line": 16,
+                    "character": 20
+                },
+                "end": {
+                    "line": 16,
+                    "character": 73
+                }
+            },
+            "rule": "reportCallIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"Series | Unknown | DataFrame | Any | ndarray[Any, Unknown] | NDArray[Unknown]\" cannot be assigned to parameter \"value\" of type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\" in function \"fillna\"\n  Type \"Series | Unknown | DataFrame | Any | ndarray[Any, Unknown] | NDArray[Unknown]\" is not assignable to type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\"\n    Type \"NDArray[Unknown]\" is not assignable to type \"Hashable | Mapping[Unknown, Unknown] | Series | DataFrame\"\n      \"ndarray[Any, dtype[Unknown]]\" is incompatible with protocol \"Hashable\"\n        \"__hash__\" is an incompatible type\n        \"__hash__\" is not defined as a ClassVar in protocol\n          Type \"None\" is not assignable to type \"() -> int\"\n      \"ndarray[Any, dtype[Unknown]]\" is not assignable to \"Mapping[Unknown, Unknown]\"\n      \"ndarray[Any, dtype[Unknown]]\" is not assignable to \"Series\"",
+            "range": {
+                "start": {
+                    "line": 16,
+                    "character": 45
+                },
+                "end": {
+                    "line": 16,
+                    "character": 72
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 19,
+                    "character": 26
+                },
+                "end": {
+                    "line": 19,
+                    "character": 50
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 20,
+                    "character": 36
+                },
+                "end": {
+                    "line": 20,
+                    "character": 60
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 23,
+                    "character": 30
+                },
+                "end": {
+                    "line": 23,
+                    "character": 49
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 26,
+                    "character": 30
+                },
+                "end": {
+                    "line": 26,
+                    "character": 67
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 29,
+                    "character": 26
+                },
+                "end": {
+                    "line": 29,
+                    "character": 60
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/clean_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"dict[str, int]\" cannot be assigned to parameter \"func\" of type \"PythonFuncType\" in function \"map\"",
+            "range": {
+                "start": {
+                    "line": 32,
+                    "character": 42
+                },
+                "end": {
+                    "line": 36,
+                    "character": 1
+                }
+            },
+            "rule": "reportArgumentType"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_keras_model.py",
+            "severity": "error",
+            "message": "\"keras\" is not a known attribute of module \"tensorflow\"",
+            "range": {
+                "start": {
+                    "line": 20,
+                    "character": 11
+                },
+                "end": {
+                    "line": 20,
+                    "character": 16
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_keras_model.py",
+            "severity": "error",
+            "message": "\"keras\" is not a known attribute of module \"tensorflow\"",
+            "range": {
+                "start": {
+                    "line": 21,
+                    "character": 7
+                },
+                "end": {
+                    "line": 21,
+                    "character": 12
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_keras_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"shape\" for class \"list[Unknown]\"\n  Attribute \"shape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 21,
+                    "character": 70
+                },
+                "end": {
+                    "line": 21,
+                    "character": 75
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_keras_model.py",
+            "severity": "error",
+            "message": "\"keras\" is not a known attribute of module \"tensorflow\"",
+            "range": {
+                "start": {
+                    "line": 22,
+                    "character": 7
+                },
+                "end": {
+                    "line": 22,
+                    "character": 12
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_keras_model.py",
+            "severity": "error",
+            "message": "\"keras\" is not a known attribute of module \"tensorflow\"",
+            "range": {
+                "start": {
+                    "line": 23,
+                    "character": 7
+                },
+                "end": {
+                    "line": 23,
+                    "character": 12
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_pytorch_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"reshape\" for class \"list[Unknown]\"\n  Attribute \"reshape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 21,
+                    "character": 38
+                },
+                "end": {
+                    "line": 21,
+                    "character": 45
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/save_pytorch_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"shape\" for class \"list[Unknown]\"\n  Attribute \"shape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 39,
+                    "character": 39
+                },
+                "end": {
+                    "line": 39,
+                    "character": 44
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/train_keras_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"shape\" for class \"list[Unknown]\"\n  Attribute \"shape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 30,
+                    "character": 39
+                },
+                "end": {
+                    "line": 30,
+                    "character": 44
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/train_pytorch_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"reshape\" for class \"list[Unknown]\"\n  Attribute \"reshape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 24,
+                    "character": 38
+                },
+                "end": {
+                    "line": 24,
+                    "character": 45
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/train_pytorch_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"reshape\" for class \"list[Unknown]\"\n  Attribute \"reshape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 26,
+                    "character": 36
+                },
+                "end": {
+                    "line": 26,
+                    "character": 43
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/train_pytorch_model.py",
+            "severity": "error",
+            "message": "Cannot access attribute \"shape\" for class \"list[Unknown]\"\n  Attribute \"shape\" is unknown",
+            "range": {
+                "start": {
+                    "line": 43,
+                    "character": 39
+                },
+                "end": {
+                    "line": 43,
+                    "character": 44
+                }
+            },
+            "rule": "reportAttributeAccessIssue"
+        },
+        {
+            "file": "/home/daniel/Projetos/titanic-survival-prediction/scripts/visualize_dataset.py",
+            "severity": "error",
+            "message": "Argument of type \"Series | Unknown | DataFrame\" cannot be assigned to parameter \"data\" of type \"DataSource | _DataSourceWideForm\" in function \"histplot\"\n  Type \"Series | Unknown | DataFrame\" is not assignable to type \"DataSource | _DataSourceWideForm\"\n    Type \"Series\" is not assignable to type \"DataSource | _DataSourceWideForm\"\n      \"Series\" is not assignable to \"DataFrame\"\n      \"Series\" is incompatible with protocol \"SupportsDataFrame\"\n        \"__dataframe__\" is not present\n      \"Series\" is not assignable to \"Mapping[Any, Incomplete]\"\n      \"Series\" is not assignable to \"None\"\n      \"Series\" is not assignable to \"Mapping[Any, _Vector]\"\n  ...",
+            "range": {
+                "start": {
+                    "line": 23,
+                    "character": 13
+                },
+                "end": {
+                    "line": 23,
+                    "character": 22
+                }
+            },
+            "rule": "reportArgumentType"
+        }
+    ],
+    "summary": {
+        "filesAnalyzed": 21,
+        "errorCount": 25,
+        "warningCount": 0,
+        "informationCount": 0,
+        "timeInSec": 4.488
+    }
+}
+
