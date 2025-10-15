@@ -1,6 +1,7 @@
 import os
 import json
 import numpy as np
+import numpy.typing as npt
 import joblib
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -65,10 +66,10 @@ def health_check(request):
 @csrf_exempt
 def predict(request):
     if request.method == "POST":
-        scaler = load_prediction_components()
+        model, scaler = load_prediction_components()
 
-        if scaler is None:
-            return JsonResponse({"error": "Scaler not loaded. Please check server logs."}, status=500)
+        if model is None or scaler is None:
+            return JsonResponse({"error": "Model or scaler not loaded. Please check server logs."}, status=500)
 
         try:
             data = json.loads(request.body)
@@ -112,9 +113,9 @@ def predict(request):
                     return JsonResponse({"error": f"Could not convert value '{value}' to numeric for feature '{feature}'."}, status=400)
 
         try:
-            input_data = np.array([input_features])
+            input_data: npt.NDArray[np.float32] = np.array([input_features], dtype=np.float32)
             input_scaled = scaler.transform(input_data)
-            prediction = MODEL.predict(input_scaled)
+            prediction = model.predict(input_scaled)
             survived = bool(prediction[0][0] > 0.5)
             confidence = float(prediction[0][0])
 
