@@ -28,7 +28,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 # Build simple neural network
 model = Sequential(
     [
-        Dense(32, input_shape=(X_train.shape[1],), activation="relu"),
+        Dense(32, input_shape=(X_scaled.shape[1],), activation="relu"),
         Dense(16, activation="relu"),
         Dense(1, activation="sigmoid"),
     ]
