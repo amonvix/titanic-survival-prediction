@@ -21,7 +21,7 @@ plt.show()
 
 # Plot 2: Age distribution
 plt.figure(figsize=(8, 5))
-sns.histplot(df['age'], bins=30, kde=True)
+sns.histplot(data=df, x='age', bins=30, kde=True)
 plt.title('Age Distribution')
 plt.xlabel('Age')
 plt.ylabel('Frequency')

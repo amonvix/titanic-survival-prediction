@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import torch
 import torch.nn as nn
 import joblib
@@ -17,9 +18,9 @@ y = df["survived"].values
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 X_train, _, y_train, _ = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
-
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
-y_train_tensor = torch.tensor(y_train.reshape(-1, 1), dtype=torch.float32)
+y_train_array = np.array(y_train).reshape(-1, 1)
+y_train_tensor = torch.tensor(y_train_array, dtype=torch.float32)
 
 # Define PyTorch model
 class TitanicModel(nn.Module):
@@ -37,7 +38,7 @@ class TitanicModel(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-model = TitanicModel(input_dim=X_train.shape[1])
+model = TitanicModel(input_dim=X_train_tensor.shape[1])
 criterion = nn.BCELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
