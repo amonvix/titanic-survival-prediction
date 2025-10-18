@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from pathlib import Path
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,8 +25,11 @@ SECRET_KEY = "fNdidkGN4ockYg5zHIukOIwC02haRcaYSx58Nj1JoUYJk1E5Jl"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*", "titanic-survival-prediction.fly.dev",
-                 "titanic-survival-prediction.fly.dev:8000"]
+ALLOWED_HOSTS = [
+    "*",
+    "titanic-survival-prediction.fly.dev",
+    "titanic-survival-prediction.fly.dev:8000",
+]
 
 # Application definition
 
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest_framework",
     "prediction",
     "corsheaders",
 ]
