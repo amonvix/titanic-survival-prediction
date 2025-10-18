@@ -9,7 +9,7 @@
     "Condition": {
       "StringEquals": { "token.actions.githubusercontent.com:aud": "sts.amazonaws.com" },
       "StringLike": {
-        "token.actions.githubusercontent.com:sub": "repo:Amonvix/titanic-survival-prediction:*"
+        "token.actions.githubusercontent.com:sub": "repo:amonvix/titanic-survival-prediction:*"
       }
     }
   }]
