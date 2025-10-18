@@ -71,7 +71,6 @@ jobs:
         run: |
           docker push ghcr.io/${{ github.repository }}/titanic:${{ github.sha }}
 
-
       # 9️⃣ Display summary
       - name: Output summary
         run: |
