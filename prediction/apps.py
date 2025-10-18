@@ -2,6 +2,7 @@
 
 from django.apps import AppConfig
 
+
 class PredictionConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'  # type: ignore[assignment]
-    name = 'titanic_survival_prediction'
+    default_auto_field: str = "django.db.models.BigAutoField"
+    name = "titanic_survival_prediction"

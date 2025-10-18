@@ -9,40 +9,38 @@ print("\n📋 Column data types:")
 print(df.dtypes)
 
 # Drop columns with too many missing values
-df.drop(columns=['deck'], inplace=True, errors='ignore')
+df.drop(columns=["deck"], inplace=True, errors="ignore")
 
 # Fill missing values (safe assignment)
-df['age'] = df['age'].fillna(df['age'].median())
-df['embarked'] = df['embarked'].fillna(df['embarked'].mode().iloc[0])
-df['embark_town'] = df['embark_town'].fillna(df['embark_town'].mode().iloc[0])
+df["age"] = df["age"].fillna(df["age"].median())
+df["embarked"] = df["embarked"].fillna(df["embarked"].mode().iloc[0])
+df["embark_town"] = df["embark_town"].fillna(df["embark_town"].mode().iloc[0])
 
 # Convert categorical columns to numeric
-df['sex'] = df['sex'].replace({'male': 0, 'female': 1})
-df['embarked'] = df['embarked'].replace({'C': 0, 'Q': 1, 'S': 2})
+df["sex"] = df["sex"].replace({"male": 0, "female": 1})
+df["embarked"] = df["embarked"].replace({"C": 0, "Q": 1, "S": 2})
 
 # Encode 'alive' column to numeric
-df['alive'] = df['alive'].replace({'no': 0, 'yes': 1})
+df["alive"] = df["alive"].replace({"no": 0, "yes": 1})
 
 # Map passenger class to numeric (1 = First, 2 = Second, 3 = Third)
-df['class'] = df['class'].replace({'First': 1, 'Second': 2, 'Third': 3})
+df["class"] = df["class"].replace({"First": 1, "Second": 2, "Third": 3})
 
 # Encode 'who' column to numeric
-df['who'] = df['who'].replace({'man': 0, 'woman': 1, 'child': 2})
+df["who"] = df["who"].replace({"man": 0, "woman": 1, "child": 2})
 
 # Encode 'embark_town' to numeric
-df['embark_town'] = df['embark_town'].replace({
-    'Southampton': 0,
-    'Cherbourg': 1,
-    'Queenstown': 2
-})
+df["embark_town"] = df["embark_town"].replace(
+    {"Southampton": 0, "Cherbourg": 1, "Queenstown": 2}
+)
 
 # Save cleaned dataset
-df.to_csv('data/titanic_clean.csv', index=False)
+df.to_csv("data/titanic_clean.csv", index=False)
 
 print("✅ Cleaned dataset saved to: data/titanic_clean.csv")
 
 # Final check for non-numeric columns
-non_numeric = df.select_dtypes(include='object').columns
+non_numeric = df.select_dtypes(include="object").columns
 if len(non_numeric):
     print("⚠️ Non-numeric columns remaining:", list(non_numeric))
 else:
