@@ -22,6 +22,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Disable default Docker buildx detection
+        run: |
+          echo "BUILDX_NO_DEFAULT_LOAD=1" >> $GITHUB_ENV
+
+
       # 2️⃣ Setup Python environment
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -75,5 +80,6 @@ jobs:
       - name: Output summary
         run: |
           echo "✅ CI pipeline completed successfully."
-          echo "📌 Image pushed to: ghcr.io/${{ github.repository }}/titanic:${{ github.sha }}"
+          echo "📌 Image pushed to: ghcr.io/amonvix/titanic:${{ github.sha }}
+
 
