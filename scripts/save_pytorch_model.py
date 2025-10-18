@@ -1,11 +1,12 @@
-import pandas as pd
+import os
+
+import joblib
 import numpy as np
+import pandas as pd
 import torch
 import torch.nn as nn
-import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-import os
 
 # Create output folder
 os.makedirs("models", exist_ok=True)
@@ -18,9 +19,10 @@ y = df["survived"].values
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 X_train, _, y_train, _ = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
-y_train_array = np.array(y_train).reshape(-1, 1)
-y_train_tensor = torch.tensor(y_train_array, dtype=torch.float32)
+y_train_tensor = torch.tensor(np.array(y_train).reshape(-1, 1), dtype=torch.float32)
+
 
 # Define PyTorch model
 class TitanicModel(nn.Module):
@@ -32,11 +34,12 @@ class TitanicModel(nn.Module):
             nn.Linear(32, 16),
             nn.ReLU(),
             nn.Linear(16, 1),
-            nn.Sigmoid()
+            nn.Sigmoid(),
         )
 
     def forward(self, x):
         return self.net(x)
+
 
 model = TitanicModel(input_dim=X_train_tensor.shape[1])
 criterion = nn.BCELoss()

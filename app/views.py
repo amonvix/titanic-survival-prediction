@@ -1,15 +1,16 @@
-import os
 import json
+import os
+from typing import cast
+
+import joblib
 import numpy as np
 import numpy.typing as npt
-import joblib
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from tensorflow.keras.models import load_model
 
 # Base dir
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
 
 # Category mappings
 category_mappings = {
@@ -21,13 +22,24 @@ category_mappings = {
     "embark_town": {"Cherbourg": 0, "Queenstown": 1, "Southampton": 2},
     "pclass": {1: 0, 2: 1, 3: 2},  # Manter se pclass for categórico
     # Manter se sibsp for categórico
-    "sibsp": {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 6}
+    "sibsp": {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 6},
 }
 
 # Define the expected feature order (deve ser consistente com o treinamento do modelo)
 FEATURE_ORDER = [
-    "pclass", "sex", "age", "sibsp", "parch", "fare", "embarked",
-    "class", "who", "adult_male", "deck", "embark_town", "alone"
+    "pclass",
+    "sex",
+    "age",
+    "sibsp",
+    "parch",
+    "fare",
+    "embarked",
+    "class",
+    "who",
+    "adult_male",
+    "deck",
+    "embark_town",
+    "alone",
 ]
 
 # Variáveis globais para o modelo e scaler
@@ -69,21 +81,29 @@ def predict(request):
         model, scaler = load_prediction_components()
 
         if model is None or scaler is None:
-            return JsonResponse({"error": "Model or scaler not loaded. Please check server logs."}, status=500)
+            return JsonResponse(
+                {"error": "Model or scaler not loaded. Please check server logs."},
+                status=500,
+            )
 
         try:
             data = json.loads(request.body)
         except json.JSONDecodeError:
             return JsonResponse({"error": "Invalid JSON format."}, status=400)
         except Exception as e:
-            return JsonResponse({"error": f"Error parsing request body: {e}"}, status=400)
+            return JsonResponse(
+                {"error": f"Error parsing request body: {e}"}, status=400
+            )
 
         input_features = []
         for feature in FEATURE_ORDER:
             value = data.get(feature)
 
             if value is None:
-                return JsonResponse({"error": f"Missing required feature: '{feature}' in input data."}, status=400)
+                return JsonResponse(
+                    {"error": f"Missing required feature: '{feature}' in input data."},
+                    status=400,
+                )
 
             # Aplica o mapeamento de categoria, se aplicável
             if feature in category_mappings:
@@ -93,7 +113,12 @@ def predict(request):
                     # Se o valor categórico não for encontrado no mapeamento
                     # e não for um valor que você espera tratar como numérico depois,
                     # deve-se retornar um erro ou um valor "desconhecido" adequado.
-                    return JsonResponse({"error": f"Invalid value '{value}' for category '{feature}'. Value not in mapping."}, status=400)
+                    return JsonResponse(
+                        {
+                            "error": f"Invalid value '{value}' for category '{feature}'. Value not in mapping."
+                        },
+                        status=400,
+                    )
                 input_features.append(mapped_value)
             else:
                 # Para features numéricas, tenta converter para float.
@@ -108,24 +133,41 @@ def predict(request):
                         input_features.append(float(value))
                     else:
                         # Se o valor não for numérico e não for uma string convertível
-                        return JsonResponse({"error": f"Invalid data type for numeric feature '{feature}': expected numeric, got '{type(value).__name__}'."}, status=400)
+                        return JsonResponse(
+                            {
+                                "error": f"Invalid data type for numeric feature '{feature}': expected numeric, got '{type(value).__name__}'."
+                            },
+                            status=400,
+                        )
                 except (ValueError, TypeError):
-                    return JsonResponse({"error": f"Could not convert value '{value}' to numeric for feature '{feature}'."}, status=400)
+                    return JsonResponse(
+                        {
+                            "error": f"Could not convert value '{value}' to numeric for feature '{feature}'."
+                        },
+                        status=400,
+                    )
 
         try:
-            input_data: npt.NDArray[np.float32] = np.array([input_features], dtype=np.float32)
+            input_data: npt.NDArray[np.float32] = np.array(
+                [input_features], dtype=np.float32
+            )
             input_scaled = scaler.transform(input_data)
             prediction = model.predict(input_scaled)
             survived = bool(prediction[0][0] > 0.5)
             confidence = float(prediction[0][0])
 
-            return JsonResponse({
-                "survived": survived,
-                "confidence": confidence,
-                "message": "Prediction successful"
-            })
+            return JsonResponse(
+                {
+                    "survived": survived,
+                    "confidence": confidence,
+                    "message": "Prediction successful",
+                }
+            )
 
         except Exception as e:
-            return JsonResponse({"error": f"Prediction failed due to internal processing error: {e}"}, status=500)
+            return JsonResponse(
+                {"error": f"Prediction failed due to internal processing error: {e}"},
+                status=500,
+            )
 
     return JsonResponse({"error": "Only POST method is allowed."}, status=405)
