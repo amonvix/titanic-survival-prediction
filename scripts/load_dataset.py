@@ -1,7 +1,7 @@
 # scripts/load_dataset.py
 
 import seaborn as sns
-import pandas as pd
+
 
 # Load Titanic dataset from Seaborn
 df = sns.load_dataset('titanic')

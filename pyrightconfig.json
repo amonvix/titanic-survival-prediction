@@ -1,0 +1,36 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/pyright/main/packages/vscode-pyright/schemas/pyrightconfig.schema.json",
+  "include": ["app", "prediction", "scripts"],
+  "exclude": [
+    "**/__pycache__",
+    "**/.venv",
+    "**/venv",
+    "**/migrations",
+    "data",
+    "node_modules"
+  ],
+  "ignore": [
+    "torch",
+    "tensorflow",
+    "sklearn",
+    "django",
+    "pandas",
+    "joblib",
+    "seaborn"
+  ],
+  "pythonVersion": "3.10",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "reportMissingTypeStubs": false,
+  "reportImportCycles": false,
+  "reportOptionalMemberAccess": false,
+  "reportAttributeAccessIssue": false,
+  "reportArgumentType": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownArgumentType": false,
+  "reportUnusedImport": "warning",
+  "venvPath": ".",
+  "venv": "venv"
+}
