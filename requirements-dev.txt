@@ -1,0 +1,7 @@
+# Type stubs for mypy
+types-pandas
+types-seaborn
+types-requests
+types-setuptools
+types-tensorflow
+types-joblib

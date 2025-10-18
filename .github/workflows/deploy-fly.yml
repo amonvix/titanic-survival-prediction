@@ -1,0 +1,40 @@
+name: 🚀 Deploy to Fly.io
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout do código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Instalar o Fly CLI
+      - name: Install Fly CLI
+        run: |
+          curl -L https://fly.io/install.sh | sh
+          echo "${HOME}/.fly/bin" >> $GITHUB_PATH
+
+      # 3️⃣ Login no Fly.io
+      - name: Fly.io Auth
+        run: flyctl auth token ${{ secrets.FLY_API_TOKEN }}
+
+      # 4️⃣ Fazer deploy usando a imagem do GHCR
+      - name: Deploy to Fly.io
+        run: |
+          flyctl deploy \
+            --image ghcr.io/amonvix/titanic:${{ github.sha }} \
+            --auto-confirm \
+            --detach
+
+      # 5️⃣ Exibir resumo
+      - name: Output summary
+        run: |
+          echo "✅ Deploy realizado com sucesso!"
+          echo "🌍 Imagem utilizada: ghcr.io/amonvix/titanic:${{ github.sha }}"

@@ -30,7 +30,7 @@ jobs:
 
       # 3️⃣ Pull image from GHCR
       - name: Pull image from GHCR
-        run: docker pull ${{ vars.GHCR_IMAGE }}:${{ github.sha }}
+        run: docker pull ghcr.io/amonvix/titanic:${{ github.sha }}
 
       # 4️⃣ Configure AWS credentials using OIDC
       - name: Configure AWS credentials (OIDC)
