@@ -1,9 +1,8 @@
-# prediction/urls.py
-
 from django.urls import path
-from .views import predict_view, form_view
+
+from .views import health_check, predict
 
 urlpatterns = [
-    path("predict/", predict_view, name="predict"),
-    path("", form_view, name="form"),
+    path("", health_check),  # root
+    path("predict/", predict),
 ]
