@@ -64,12 +64,12 @@ jobs:
       # 7️⃣ Build Docker image
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/titanic:${{ github.sha }} .
+          docker build -t ghcr.io/amonvix/titanic:${{ github.sha }} .
 
       # 8️⃣ Push image to GHCR
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}/titanic:${{ github.sha }}
+          docker push ghcr.io/amonvix/titanic:${{ github.sha }}
 
       # 9️⃣ Display summary
       - name: Output summary
