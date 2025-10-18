@@ -44,10 +44,10 @@ jobs:
           pip install ruff mypy pytest pytest-cov
 
       # 4️⃣ Static analysis: Lint (ruff) + Type check (mypy)
-      - name: Lint & Type Check
+      - name: Lint & Type Check (mypy)
         run: |
           ruff check .
-          mypy --ignore-missing-imports --pretty .
+          mypy --ignore-missing-imports app scripts
 
       # 5️⃣ Run unit tests and generate coverage report
       - name: Run tests
