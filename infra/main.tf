@@ -3,14 +3,14 @@
 ##############################################
 # 1️⃣ ECR Repository: Armazena as imagens Docker
 ##############################################
-resource "aws_ecr_repository" "app_repo" {
-  name                 = var.app_name
-  image_tag_mutability = "MUTABLE"
-
-  lifecycle {
-    prevent_destroy = false
-  }
-}
+#resource "aws_ecr_repository" "app_repo" {
+#  name                 = var.app_name
+#  image_tag_mutability = "MUTABLE"
+#
+#  lifecycle {
+#    prevent_destroy = false
+#  }
+#}
 
 ##############################################
 # 2️⃣ ECS Cluster: Onde as tasks vão rodar
@@ -22,45 +22,45 @@ resource "aws_ecs_cluster" "app_cluster" {
 ##############################################
 # 3️⃣ Security Group: Libera porta 8000 para acesso externo
 ##############################################
-resource "aws_security_group" "app_sg" {
-  name        = "${var.app_name}-sg"
-  description = "Allow inbound traffic on app port"
-  vpc_id      = data.aws_vpc.default.id
-
-  ingress {
-    from_port   = var.container_port
-    to_port     = var.container_port
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
+#resource "aws_security_group" "app_sg" {
+#  name        = "${var.app_name}-sg"
+#  description = "Allow inbound traffic on app port"
+#  vpc_id      = data.aws_vpc.default.id
+#
+#  ingress {
+#    from_port   = var.container_port
+#    to_port     = var.container_port
+#    protocol    = "tcp"
+#    cidr_blocks = ["0.0.0.0/0"]
+#  }
+#
+#  egress {
+#    from_port   = 0
+#    to_port     = 0
+#    protocol    = "-1"
+#    cidr_blocks = ["0.0.0.0/0"]
+#  }
+#}
 
 ##############################################
 # 4️⃣ IAM Role para ECS Task Execution
 ##############################################
-resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "${var.app_name}-ecs-task-execution-role"
-
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ecs-tasks.amazonaws.com"
-        }
-      }
-    ]
-  })
-}
+#resource "aws_iam_role" "ecs_task_execution_role" {
+#  name = "${var.app_name}-ecs-task-execution-role"
+#
+#  assume_role_policy = jsonencode({
+#    Version = "2012-10-17"
+#    Statement = [
+#      {
+#        Action = "sts:AssumeRole"
+#        Effect = "Allow"
+#        Principal = {
+#          Service = "ecs-tasks.amazonaws.com"
+#        }
+#      }
+#    ]
+#  })
+#}
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_policy" {
   role       = aws_iam_role.ecs_task_execution_role.name
