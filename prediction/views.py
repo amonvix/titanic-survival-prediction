@@ -27,3 +27,7 @@ def predict_view(request):
         return JsonResponse({"prediction": prediction_result}, status=200)
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
+
+
+def health_check(request):
+    return JsonResponse({"status": "ok", "message": "Titanic API running!"})
