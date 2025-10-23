@@ -1,8 +1,9 @@
+# Caminho: prediction/urls.py
+
 from django.urls import path
 
-from .views import health_check, predict
+from .views import predict_view
 
 urlpatterns = [
-    path("", health_check),
-    path("predict/", predict),
+    path("predict/", predict_view, name="predict"),
 ]

@@ -385,3 +385,48 @@
 [2025-06-10 14:00:26,673] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
 [2025-06-10 14:00:26,760] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
 [2025-06-10 14:00:26,762] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 37
+[2025-10-23 21:39:25,051] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:45:08,262] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:45:14,963] WARNING in log: Not Found: /
+[2025-10-23 21:45:14,964] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:45:15,204] WARNING in log: Not Found: /favicon.ico
+[2025-10-23 21:45:15,206] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-10-23 21:45:58,892] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:46:05,589] WARNING in log: Not Found: /
+[2025-10-23 21:46:05,590] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:46:05,841] WARNING in log: Not Found: /favicon.ico
+[2025-10-23 21:46:05,846] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-10-23 21:47:08,372] INFO in basehttp: "GET /predict HTTP/1.1" 301 0
+[2025-10-23 21:47:08,700] WARNING in log: Bad Request: /predict/
+[2025-10-23 21:47:08,700] WARNING in basehttp: "GET /predict/ HTTP/1.1" 400 28
+[2025-10-23 21:47:15,791] WARNING in log: Not Found: /post/
+[2025-10-23 21:47:15,792] WARNING in basehttp: "GET /post/ HTTP/1.1" 404 179
+[2025-10-23 21:48:26,041] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:48:26,041] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:48:49,593] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:48:49,593] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:49:28,237] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:49:28,238] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:51:12,357] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 21:51:13,218] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:51:25,614] WARNING in log: Not Found: /
+[2025-10-23 21:51:25,615] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:51:31,407] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:51:31,407] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:53:48,049] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:53:48,050] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:55:53,804] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 21:55:54,691] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:56:06,007] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:56:19,322] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:56:19,322] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 84
+[2025-10-23 22:11:31,524] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:11:37,427] WARNING in log: Not Found: /
+[2025-10-23 22:11:37,428] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 22:11:56,094] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 22:11:56,096] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 393
+[2025-10-23 22:14:52,231] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 22:14:51,370] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:15:00,452] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 22:15:00,452] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 43
+[2025-10-23 22:15:47,183] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 69
