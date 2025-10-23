@@ -1,47 +1,45 @@
 # scripts/predict_logic.py
-import os
-import numpy as np
+"""
+Predict logic using the full sklearn pipeline (preprocessing + scaler + model).
+This assumes models/pipeline.pkl exists and was built using create_pipeline.py.
+"""
+
+from pathlib import Path
+
 import joblib
-from tensorflow.keras.models import load_model
+import pandas as pd
 
-# Category encoding map
-category_mappings = {
-    "sex": {"female": 0, "male": 1},
-    "embarked": {"C": 0, "Q": 1, "S": 2},
-    "class": {"First": 0, "Second": 1, "Third": 2},
-    "who": {"child": 0, "man": 1, "woman": 2},
-    "deck": {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "Unknown": 7},
-    "embark_town": {"Cherbourg": 0, "Queenstown": 1, "Southampton": 2},
-    "alive": {"no": 0, "yes": 1},
-}
+# Path to the complete pipeline
+PIPELINE_PATH = Path("models/pipeline.pkl")
 
-# Paths
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCALER_PATH = os.path.join(BASE_DIR, "models", "keras_scaler.pkl")
-MODEL_PATH = os.path.join(BASE_DIR, "models", "model.h5")
-
-# Lazy-loaded scaler
-model = load_model(MODEL_PATH)
-scaler = joblib.load(SCALER_PATH)
-
-
-def preprocess_input(raw_data: dict) -> dict:
-    processed = {}
-    for key, value in raw_data.items():
-        if key in category_mappings:
-            try:
-                processed[key] = category_mappings[key][value]
-            except KeyError:
-                raise ValueError(f"Invalid value '{value}' for field '{key}'")
-        else:
-            processed[key] = value
-    return processed
+# Load pipeline lazily (once on module import)
+pipeline = joblib.load(PIPELINE_PATH)
 
 
 def predict_survival(input_data: dict) -> dict:
-    input_data = preprocess_input(input_data)
-    features = np.array([list(input_data.values())])
-    features_scaled = scaler.transform(features)
-    prediction = model.predict(features_scaled)[0][0]
+    """
+    Takes input_data as a dict matching the raw Titanic features.
+    Example:
+        {
+            "pclass": 2,
+            "sex": "male",
+            "age": 29,
+            "sibsp": 1,
+            "parch": 0,
+            "fare": 32.5,
+            "embarked": "S",
+            "class": "Second",
+            "who": "man",
+            "adult_male": 1,
+            "embark_town": "Southampton",
+            "alone": 1
+        }
+    """
+    # ✅ Convert dict to DataFrame with a single row
+    X = pd.DataFrame([input_data])
 
-    return {"survived": bool(round(prediction)), "confidence": float(prediction)}
+    # ✅ Predict class and probability
+    prediction_proba = pipeline.predict_proba(X)[0][1]  # probabilidade de sobreviver
+    prediction_class = pipeline.predict(X)[0]  # classe final
+
+    return {"survived": bool(prediction_class), "confidence": float(prediction_proba)}
