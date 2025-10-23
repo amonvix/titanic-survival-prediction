@@ -20,34 +20,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Login no GitHub Container Registry (GHCR)
-      - name: Login to GHCR
-        uses: docker/login-action@v3
+      # 2️⃣ Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          python-version: '3.10'
 
-      # 3️⃣ Build da imagem Docker
-      - name: Build Docker image
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
         run: |
-          echo "🏗️ Building Docker image..."
-          docker build -t ghcr.io/amonvix/titanic:${{ github.sha }} .
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt || pip install -r requirements.txt
 
-      # 4️⃣ Rodar testes (opcional, pode pular se quiser)
+      # 4️⃣ Build Docker image (sem push)
+      - name: Build Docker image (no push)
+        run: |
+          echo "🏗️ Building Docker image locally..."
+          docker build -t titanic-ci:${{ github.sha }} .
+
+      # 5️⃣ Rodar testes
       - name: Run tests
         run: |
           echo "🧪 Running tests..."
-          pytest -q --maxfail=1 --disable-warnings || echo "Tests failed (non-blocking)"
-
-      # 5️⃣ Push da imagem para GHCR
-      - name: Push Docker image
-        run: |
-          echo "🚀 Pushing image to GHCR..."
-          docker push ghcr.io/amonvix/titanic:${{ github.sha }}
-
-      # 6️⃣ Resumo final
-      - name: Summary
-        run: |
-          echo "✅ CI pipeline completed successfully."
-          echo "📦 Image pushed: ghcr.io/amonvix/titanic:${{ github.sha }}"
+          pytest -q --maxfail=1 --disable-warnings
