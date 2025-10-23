@@ -1,0 +1,108 @@
+# 📍 Caminho: .github/workflows/deploy-aws.yml
+name: 🚀 AWS Deploy - Terraform + ECS Fargate
+
+on:
+  push:
+    branches:
+      - main         # Dispara automaticamente ao fazer push na main
+  workflow_dispatch:  # Permite rodar manualmente no GitHub Actions
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: 📦 Deploy to AWS ECS Fargate
+    runs-on: ubuntu-latest
+
+    steps:
+      #############################################
+      # 1️⃣ Checkout do código
+      #############################################
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      #############################################
+      # 2️⃣ Configuração das credenciais AWS (usando secrets)
+      #############################################
+      - name: 🔐 Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      #############################################
+      # 3️⃣ Instalação do Terraform
+      #############################################
+      - name: 📦 Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.0
+
+      #############################################
+      # 4️⃣ Inicialização do Terraform
+      #############################################
+      - name: ⚙️ Terraform Init
+        working-directory: infra
+        run: terraform init
+
+      #############################################
+      # 5️⃣ Criação/atualização da infraestrutura (ECR, ECS, SG, etc)
+      #############################################
+      - name: 🛠️ Terraform Apply (infra inicial)
+        working-directory: infra
+        run: terraform apply -auto-approve
+
+      #############################################
+      # 6️⃣ Login no ECR
+      #############################################
+      - name: 🔓 Login to Amazon ECR
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          aws ecr get-login-password --region "$AWS_REGION" \
+            | docker login --username AWS --password-stdin \
+              "$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_REGION}.amazonaws.com"
+
+      #############################################
+      # 7️⃣ Build da imagem com duas tags (latest e SHA)
+      #############################################
+      - name: 🏗️ Build Docker image
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ steps.aws.outputs.id }}
+        run: |
+          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/titanic-api"
+          docker build -t "$ECR_REPO:latest" -t "$ECR_REPO:${{ github.sha }}" .
+          echo "✅ Imagem construída com sucesso."
+
+      #############################################
+      # 8️⃣ Push das duas tags para o ECR
+      #############################################
+      - name: 📤 Push Docker image to ECR
+        env:
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+        run: |
+          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+          ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/titanic-api"
+          docker push "$ECR_REPO:latest"
+          docker push "$ECR_REPO:${{ github.sha }}"
+          echo "✅ Imagem enviada ao ECR."
+
+      #############################################
+      # 9️⃣ Terraform Apply final para atualizar a imagem (caso necessário)
+      #############################################
+      - name: 📦 Terraform Apply (com imagem atualizada)
+        working-directory: infra
+        run: terraform apply -auto-approve
+
+      #############################################
+      # 🔟 Resumo final no log
+      #############################################
+      - name: ✅ Deployment Summary
+        run: |
+          echo "✅ Deploy finalizado com sucesso!"
+          echo "📍 Imagem em: latest e ${{ github.sha }}"
+          echo "🚀 ECS Fargate em execução."
