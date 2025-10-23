@@ -430,3 +430,8 @@
 [2025-10-23 22:15:00,452] ERROR in log: Internal Server Error: /predict/
 [2025-10-23 22:15:00,452] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 43
 [2025-10-23 22:15:47,183] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 69
+[2025-10-23 22:31:11,385] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-10-23 22:31:12,893] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:32:06,505] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/prediction/urls.py changed, reloading.
+[2025-10-23 22:32:07,515] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:32:21,385] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 69
