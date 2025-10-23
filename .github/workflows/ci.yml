@@ -20,20 +20,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣  Build da imagem Docker
-      - name: Build Docker image
+      # 2️⃣ Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt || pip install -r requirements.txt
+
+      # 4️⃣ Build Docker image (sem push)
+      - name: Build Docker image (no push)
         run: |
           echo "🏗️ Building Docker image locally..."
           docker build -t titanic-ci:${{ github.sha }} .
 
-      # 3️⃣ Rodar testes
+      # 5️⃣ Rodar testes
       - name: Run tests
         run: |
           echo "🧪 Running tests..."
           pytest -q --maxfail=1 --disable-warnings
-
-      # 4️⃣ Resumo final
-      - name: Summary
-        run: |
-          echo "✅ CI pipeline executed successfully!"
-          echo "📦 Docker image built locally as: titanic-ci:${{ github.sha }}" 
