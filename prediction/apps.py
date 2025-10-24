@@ -1,8 +1,0 @@
-# prediction/apps.py
-
-from django.apps import AppConfig
-
-
-class PredictionConfig(AppConfig):
-    default_auto_field: str = "django.db.models.BigAutoField"
-    name = "prediction"
