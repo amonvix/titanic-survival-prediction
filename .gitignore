@@ -22,3 +22,4 @@ staticfiles/
 
 #terraform instructions
 .terraform/
+.terraform/
