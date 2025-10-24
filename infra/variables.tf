@@ -29,3 +29,9 @@ variable "container_port" {
   type        = number
   default     = 8000
 }
+
+variable "image_tag" {
+  description = "Tag da imagem Docker para ECS (ex: latest ou SHA)"
+  type        = string
+  default     = "latest"
+}
