@@ -19,3 +19,7 @@ logs/
 
 #collect static files
 staticfiles/
+
+#terraform instructions
+.terraform/
+.terraform/

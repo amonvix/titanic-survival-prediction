@@ -4,8 +4,8 @@ name: 🚀 AWS Deploy - Terraform + ECS Fargate
 on:
   push:
     branches:
-      - main         # Dispara automaticamente ao fazer push na main
-  workflow_dispatch:  # Permite rodar manualmente no GitHub Actions
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       #############################################
-      # 2️⃣ Configuração das credenciais AWS (usando secrets)
+      # 2️⃣ Configuração das credenciais AWS
       #############################################
       - name: 🔐 Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -41,21 +41,18 @@ jobs:
           terraform_version: 1.9.0
 
       #############################################
-      # 4️⃣ Inicialização do Terraform
+      # 4️⃣ Terraform Init + Apply inicial (ECR, IAM, etc.)
       #############################################
       - name: ⚙️ Terraform Init
         working-directory: infra
         run: terraform init
 
-      #############################################
-      # 5️⃣ Criação/atualização da infraestrutura (ECR, ECS, SG, etc)
-      #############################################
       - name: 🛠️ Terraform Apply (infra inicial)
         working-directory: infra
         run: terraform apply -auto-approve
 
       #############################################
-      # 6️⃣ Login no ECR
+      # 5️⃣ Login no ECR
       #############################################
       - name: 🔓 Login to Amazon ECR
         env:
@@ -66,12 +63,11 @@ jobs:
               "$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_REGION}.amazonaws.com"
 
       #############################################
-      # 7️⃣ Build da imagem com duas tags (latest e SHA)
+      # 6️⃣ Build da imagem com tags latest e SHA
       #############################################
       - name: 🏗️ Build Docker image
         env:
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_ACCOUNT_ID: ${{ steps.aws.outputs.id }}
         run: |
           AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
           ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/titanic-api"
@@ -79,7 +75,7 @@ jobs:
           echo "✅ Imagem construída com sucesso."
 
       #############################################
-      # 8️⃣ Push das duas tags para o ECR
+      # 7️⃣ Push das imagens
       #############################################
       - name: 📤 Push Docker image to ECR
         env:
@@ -92,17 +88,17 @@ jobs:
           echo "✅ Imagem enviada ao ECR."
 
       #############################################
-      # 9️⃣ Terraform Apply final para atualizar a imagem (caso necessário)
+      # 8️⃣ Terraform Apply final com SHA
       #############################################
-      - name: 📦 Terraform Apply (com imagem atualizada)
+      - name: 📦 Terraform Apply (com imagem atualizada - SHA)
         working-directory: infra
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -var="image_tag=${{ github.sha }}"
 
       #############################################
-      # 🔟 Resumo final no log
+      # ✅ Resumo final
       #############################################
       - name: ✅ Deployment Summary
         run: |
           echo "✅ Deploy finalizado com sucesso!"
-          echo "📍 Imagem em: latest e ${{ github.sha }}"
+          echo "📍 Imagem usada: ${{ github.sha }}"
           echo "🚀 ECS Fargate em execução."
