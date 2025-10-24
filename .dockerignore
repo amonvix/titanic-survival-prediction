@@ -1,38 +1,36 @@
-# Ignora diretórios locais e temporários
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.log
-*.sqlite3
-*.db
-
-# Ignora ambientes virtuais
-venv/
-env/
-.venv/
-
-# Ignora arquivos de configuração locais
-.env
-*.env
-
-# Ignora dados e caches
-.cache/
-*.h5
-*.pkl
-*.joblib
-*.csv
-*.tsv
-
-# Ignora arquivos de IDEs e editores
-.vscode/
-.idea/
-*.swp
-
-# Ignora repositórios Git
+# Ignore git
 .git/
 .gitignore
 
-# Ignora arquivos do sistema
-.DS_Store
-Thumbs.db
+# No virtual envs
+.venv/
+venv/
+
+# No local configs
+.vscode/
+*.code-workspace
+
+# Ignore cache
+__pycache__/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Ignore Terraform state
+terraform.tfstate*
+*.tfvars
+
+# Ignore data not needed in runtime
+data/
+
+# Ignore notebooks
+*.ipynb
+
+# Ignore reports & logs
+reports/
+*.log
+
+# Ignore ML training artifacts if not required in container
+*.pt
+*.ckpt
+*.h5
