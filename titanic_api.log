@@ -1,0 +1,437 @@
+[2025-06-09 17:22:46,634] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:22:55,091] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:23:17,740] INFO in views: ⚙️ Request method: POST
+[2025-06-09 17:23:17,740] INFO in views: ⚙️ Headers: {'Content-Length': '254', 'Content-Type': 'application/json', 'Host': 'localhost:8000', 'User-Agent': 'curl/8.5.0', 'Accept': '*/*'}
+[2025-06-09 17:23:17,741] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-09 17:23:17,741] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-09 17:23:17,741] WARNING in log: Bad Request: /predict/
+[2025-06-09 17:23:17,741] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-09 17:23:51,122] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:23:51,129] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:23:51,129] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '01996784-ae38-4d6f-b3ef-0228f375d456', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:23:51,129] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:23:51,129] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:23:54,730] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:23:54,737] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:23:54,737] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '5827bd15-5de3-4ca5-9d30-4e394fa1d673', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:23:54,738] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:23:54,738] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:28:34,933] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-09 17:28:36,091] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:28:39,688] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:28:44,667] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:28:44,675] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:28:44,676] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '384a3e30-f73b-437b-8353-29da26ba24f1', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:28:44,676] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:28:44,677] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:28:54,944] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:28:58,611] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:29:16,472] INFO in views: ⚙️ Request method: POST
+[2025-06-09 17:29:16,472] INFO in views: ⚙️ Headers: {'Content-Length': '254', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'User-Agent': 'curl/8.5.0', 'Accept': '*/*'}
+[2025-06-09 17:29:16,472] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-09 17:29:16,472] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-09 17:29:16,473] WARNING in log: Bad Request: /predict/
+[2025-06-09 17:29:16,473] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-09 17:35:23,269] INFO in views: ⚙️ Request method: POST
+[2025-06-09 17:35:23,269] INFO in views: ⚙️ Headers: {'Content-Length': '254', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'User-Agent': 'curl/8.5.0', 'Accept': '*/*'}
+[2025-06-09 17:35:23,269] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-09 17:35:23,269] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-09 17:35:23,269] WARNING in log: Bad Request: /predict/
+[2025-06-09 17:35:23,270] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-09 17:35:51,172] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:35:54,687] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:36:04,026] INFO in views: ⚙️ Request method: POST
+[2025-06-09 17:36:04,026] INFO in views: ⚙️ Headers: {'Content-Length': '254', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'User-Agent': 'curl/8.5.0', 'Accept': '*/*'}
+[2025-06-09 17:36:04,026] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-09 17:36:04,026] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-09 17:36:04,027] WARNING in log: Bad Request: /predict/
+[2025-06-09 17:36:04,027] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-09 17:36:30,407] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:36:30,412] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:36:30,413] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '6229167f-6fab-4112-9694-8157ce66cff8', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:36:30,413] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:36:30,413] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:53:39,052] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/urls.py changed, reloading.
+[2025-06-09 17:53:26,080] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:53:32,365] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:53:42,576] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-09 17:53:43,804] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:53:47,271] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:54:17,664] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:54:17,669] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:54:17,669] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'f8075870-e3a7-4112-8639-56e8428f7493', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:54:17,670] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:54:17,670] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:54:33,879] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:54:37,272] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 17:54:42,802] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 17:54:42,809] INFO in views: ⚙️ Request method: GET
+[2025-06-09 17:54:42,810] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '9c8b837a-e072-4263-a77f-c07206e532f4', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 17:54:42,810] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 17:54:42,810] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 17:55:43,218] INFO in views: ⚙️ Request method: POST
+[2025-06-09 17:55:43,218] INFO in views: ⚙️ Headers: {'Content-Length': '254', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'User-Agent': 'curl/8.5.0', 'Accept': '*/*'}
+[2025-06-09 17:55:43,218] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-09 17:55:43,218] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-09 17:55:43,219] WARNING in log: Bad Request: /predict/
+[2025-06-09 17:55:43,219] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-09 17:58:26,001] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-09 17:58:27,145] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 17:58:30,654] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 18:01:37,433] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-09 18:01:38,610] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 18:01:42,085] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 18:01:50,355] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 18:01:53,722] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 18:02:05,642] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 18:02:05,648] INFO in views: ⚙️ Request method: GET
+[2025-06-09 18:02:05,648] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '5f69fac0-6bc1-4dde-b220-da128db86197', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8000/predict', 'Host': 'localhost:8000'}
+[2025-06-09 18:02:05,649] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 18:02:05,649] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 18:02:44,468] WARNING in log: Not Found: /
+[2025-06-09 18:02:44,470] WARNING in basehttp: "POST / HTTP/1.1" 404 179
+[2025-06-09 18:02:57,308] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 18:02:57,315] INFO in views: ⚙️ Request method: GET
+[2025-06-09 18:02:57,315] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'c55b0ac8-27af-4a06-8e95-c564300e731b', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 18:02:57,315] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 18:02:57,315] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 18:16:40,810] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 20:46:32,619] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-06-09 20:46:34,589] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 20:46:41,549] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 20:47:03,341] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 20:47:07,147] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 20:47:47,963] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 20:47:47,969] INFO in views: ⚙️ Request method: GET
+[2025-06-09 20:47:47,970] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'dd014c76-e811-4b7d-9f94-6ec28f5bdcfe', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 20:47:47,970] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 20:47:47,971] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 20:47:38,909] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 20:47:38,915] INFO in views: ⚙️ Request method: GET
+[2025-06-09 20:47:38,915] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '0090d467-8a18-4ffb-8b4c-f92de5647682', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 20:47:38,916] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 20:47:38,917] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 20:51:41,699] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 20:51:45,242] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 20:51:55,288] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 20:51:55,293] INFO in views: ⚙️ Request method: GET
+[2025-06-09 20:51:55,294] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'd94d2b00-7e52-4dbb-880a-ecdc17a6e169', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 20:51:55,294] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 20:51:55,294] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 20:52:01,306] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 20:52:01,311] INFO in views: ⚙️ Request method: GET
+[2025-06-09 20:52:01,312] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'fa4025d7-29cd-4f50-9ca5-7e0ac0a2f9fa', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 20:52:01,312] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 20:52:01,313] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 20:59:47,220] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-09 20:59:48,347] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 20:59:52,022] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 21:00:18,884] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 21:00:22,506] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-09 21:00:40,641] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-09 21:00:40,648] INFO in views: ⚙️ Request method: GET
+[2025-06-09 21:00:40,648] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'be5f31a3-20ec-48df-9d6a-3e7ba8c50fe6', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-09 21:00:40,648] WARNING in log: Method Not Allowed: /predict/
+[2025-06-09 21:00:40,649] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-09 21:20:38,644] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-09 21:20:45,123] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:19:50,363] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:25:42,039] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:25:45,356] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:25:59,186] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:25:59,191] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:25:59,191] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '145da7d4-109f-4831-bd21-1bba0c914661', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:25:59,192] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:25:59,193] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:26:02,905] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:26:02,910] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:26:02,910] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '52e55a1d-fef6-4133-af5a-3be20d8d92c5', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:26:02,910] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:26:02,911] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:26:49,541] WARNING in log: Not Found: /
+[2025-06-10 12:26:49,541] WARNING in basehttp: "POST / HTTP/1.1" 404 179
+[2025-06-10 12:27:12,600] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:27:12,606] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:27:12,606] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '56bf9c07-aefd-4f3b-89ae-0e105d150a76', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:27:12,606] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:27:12,606] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:28:59,099] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/urls.py changed, reloading.
+[2025-06-10 12:29:16,943] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:29:03,516] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:29:15,648] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/urls.py changed, reloading.
+[2025-06-10 12:29:16,780] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:29:19,913] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:30:04,517] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/app/urls.py changed, reloading.
+[2025-06-10 12:30:05,621] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:30:08,632] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:32:38,813] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:32:42,049] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:32:51,623] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:32:51,629] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:32:51,629] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'bf0e1203-7d59-4da0-a29e-4014896341f0', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:32:51,629] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:32:51,630] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:35:04,806] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:35:07,738] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:35:09,740] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:35:09,839] WARNING in log: Not Found: /favicon.ico
+[2025-06-10 12:35:09,842] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-10 12:35:17,192] INFO in views: ⚙️ Request method: POST
+[2025-06-10 12:35:17,192] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:35:17,192] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 0}
+[2025-06-10 12:35:17,192] ERROR in views: Prediction error: predict_survival() missing 1 required positional argument: 'model'
+[2025-06-10 12:35:17,193] WARNING in log: Bad Request: /predict/
+[2025-06-10 12:35:17,193] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 79
+[2025-06-10 12:35:30,920] INFO in views: ⚙️ Request method: POST
+[2025-06-10 12:35:30,920] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:35:30,920] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 1}
+[2025-06-10 12:35:30,920] ERROR in views: Prediction error: predict_survival() missing 1 required positional argument: 'model'
+[2025-06-10 12:35:30,920] WARNING in log: Bad Request: /predict/
+[2025-06-10 12:35:30,921] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 79
+[2025-06-10 12:35:32,706] INFO in views: ⚙️ Request method: POST
+[2025-06-10 12:35:32,706] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:35:32,706] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 1}
+[2025-06-10 12:35:32,706] ERROR in views: Prediction error: predict_survival() missing 1 required positional argument: 'model'
+[2025-06-10 12:35:32,706] WARNING in log: Bad Request: /predict/
+[2025-06-10 12:35:32,707] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 79
+[2025-06-10 12:35:38,429] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:35:38,430] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Purpose': 'prefetch;prerender', 'Purpose': 'prefetch', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:35:38,430] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:35:38,430] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:35:40,362] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:35:40,362] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:35:40,362] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:35:40,362] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:35:47,625] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:35:47,630] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:35:47,630] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '0636fd44-4211-4fee-a32a-981786f2d75a', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:35:47,630] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:35:47,630] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:38:23,983] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:38:26,989] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:38:47,903] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:38:41,690] INFO in views: ⚙️ Request method: POST
+[2025-06-10 12:38:41,690] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:38:41,690] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 0}
+[2025-06-10 12:38:41,691] ERROR in views: Prediction error: predict_survival() missing 1 required positional argument: 'model'
+[2025-06-10 12:38:41,691] WARNING in log: Bad Request: /predict/
+[2025-06-10 12:38:41,691] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 79
+[2025-06-10 12:42:07,483] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-06-10 12:42:08,662] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:42:11,826] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:43:21,261] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:43:24,315] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:43:30,191] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:43:30,199] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:43:30,199] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'c7931b52-ed3c-4b2f-b7a7-b439f7d96dcb', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:43:30,200] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:43:30,200] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:43:31,684] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:43:31,692] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:43:31,692] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '4d684ca0-ce2e-4cdf-9600-3d46979fcc08', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:43:31,692] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:43:31,693] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:43:32,775] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:43:32,782] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:43:32,783] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '18a497de-6026-4780-aba8-9aa8453179e7', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:43:32,783] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:43:32,784] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:43:33,858] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 12:43:33,863] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:43:33,864] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'b0ea15f4-b298-47c8-94d7-f91c1b9423f9', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 12:43:33,864] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:43:33,864] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:43:39,207] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:43:41,255] INFO in views: ⚙️ Request method: POST
+[2025-06-10 12:43:41,256] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:43:41,256] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 0}
+[2025-06-10 12:43:41,256] ERROR in views: Prediction error: X has 3 features, but StandardScaler is expecting 13 features as input.
+[2025-06-10 12:43:41,257] WARNING in log: Bad Request: /predict/
+[2025-06-10 12:43:41,257] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 84
+[2025-06-10 12:50:24,971] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/manage.py changed, reloading.
+[2025-06-10 12:50:26,107] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:50:29,228] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:50:33,000] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:50:37,425] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:50:37,450] WARNING in log: Not Found: /favicon.ico
+[2025-06-10 12:50:37,451] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-10 12:50:44,095] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 12:50:50,038] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:50:50,038] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Purpose': 'prefetch;prerender', 'Purpose': 'prefetch', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:50:50,039] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:50:50,040] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:50:52,423] INFO in views: ⚙️ Request method: GET
+[2025-06-10 12:50:52,423] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Sec-Ch-Ua-Mobile': '?0', 'Sec-Ch-Ua-Platform': '"Windows"', 'Dnt': '1', 'Upgrade-Insecure-Requests': '1', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Sec-Fetch-Site': 'none', 'Sec-Fetch-Mode': 'navigate', 'Sec-Fetch-User': '?1', 'Sec-Fetch-Dest': 'document', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 12:50:52,423] WARNING in log: Method Not Allowed: /predict/
+[2025-06-10 12:50:52,424] WARNING in basehttp: "GET /predict/ HTTP/1.1" 405 31
+[2025-06-10 12:51:22,063] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 12:51:24,963] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 12:52:40,104] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:15:23,185] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:15:30,793] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:15:51,580] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:15:35,316] WARNING in log: Not Found: /favicon.ico
+[2025-06-10 13:15:35,319] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-10 13:15:43,424] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:15:43,430] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:15:43,430] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '52ae14fe-abe5-4f2a-9fde-e642cd779952', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:15:43,433] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:15:43,436] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:15:51,380] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:15:51,385] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:15:51,385] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '5dd8c9fd-f8f1-4986-b0e7-dced2ec0c7f1', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:15:51,386] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:15:51,389] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:19:38,427] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-06-10 13:19:39,503] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:19:42,586] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:19:45,232] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:19:47,466] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:19:47,466] INFO in views: ⚙️ Headers: {'Content-Length': '36', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:19:47,466] INFO in views: Received input: {'deck': 'C', 'alive': 'yes', 'alone': 0}
+[2025-06-10 13:19:47,466] ERROR in views: Prediction error: X has 3 features, but StandardScaler is expecting 13 features as input.
+[2025-06-10 13:19:47,467] WARNING in log: Bad Request: /predict/
+[2025-06-10 13:19:47,467] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 84
+[2025-06-10 13:20:00,494] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:20:00,500] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:20:00,501] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '316a7884-047b-422c-93fe-c016fa083c13', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:20:00,504] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:20:00,507] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:20:10,359] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:20:13,218] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:20:18,797] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:20:18,802] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:20:18,803] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'a15719d9-cc04-4eb2-b901-179ee2451070', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:20:18,805] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:20:18,810] INFO in basehttp: "GET / HTTP/1.1" 200 3398
+[2025-06-10 13:35:11,226] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:35:18,741] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:35:21,997] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:35:22,310] WARNING in log: Not Found: /favicon.ico
+[2025-06-10 13:35:22,310] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-10 13:35:28,167] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:35:28,167] INFO in views: ⚙️ Headers: {'Content-Length': '187', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:35:28,167] INFO in views: Received input: {'deck': 'C', 'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'class': 'Third', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1, 'alive': 'yes', 'alone': 0}
+[2025-06-10 13:35:28,167] ERROR in views: Prediction error: predict_survival() takes 1 positional argument but 2 were given
+[2025-06-10 13:35:28,168] WARNING in log: Bad Request: /predict/
+[2025-06-10 13:35:28,168] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 76
+[2025-06-10 13:36:32,967] WARNING in log: Forbidden (CSRF cookie not set.): /
+[2025-06-10 13:36:32,968] WARNING in basehttp: "POST / HTTP/1.1" 403 1367
+[2025-06-10 13:36:41,651] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:36:41,658] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:36:41,658] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'da8d4d95-a345-4368-af7e-5531efc8ff18', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:36:41,660] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:36:41,664] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:37:37,567] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:37:37,574] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:37:37,575] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'ae064daf-4a34-44fd-a2f8-7581e0e06451', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:37:37,576] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:37:37,579] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:41:20,785] INFO in autoreload: /home/amonvix/projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-06-10 13:41:39,233] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:41:27,974] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:41:53,391] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:41:56,351] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:41:58,818] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:42:00,801] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:42:00,801] INFO in views: ⚙️ Headers: {'Content-Length': '187', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:42:00,802] INFO in views: Received input: {'deck': 'C', 'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'class': 'Third', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1, 'alive': 'yes', 'alone': 0}
+[2025-06-10 13:42:00,802] ERROR in views: Prediction error: X has 14 features, but StandardScaler is expecting 13 features as input.
+[2025-06-10 13:42:00,802] WARNING in log: Bad Request: /predict/
+[2025-06-10 13:42:00,803] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 85
+[2025-06-10 13:42:22,960] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:42:22,966] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:42:22,966] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '1163f855-5eec-4668-9089-6b7cd7979b07', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:42:22,968] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:42:22,973] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:42:26,221] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:42:26,227] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:42:26,227] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': 'ec7761ad-a00e-4a63-a6dd-b186b055e2aa', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:42:26,228] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:42:26,232] INFO in basehttp: "GET / HTTP/1.1" 200 5640
+[2025-06-10 13:45:58,257] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:46:01,398] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:46:03,328] INFO in basehttp: "GET / HTTP/1.1" 200 5458
+[2025-06-10 13:46:03,951] WARNING in log: Not Found: /favicon.ico
+[2025-06-10 13:46:03,953] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-06-10 13:45:48,798] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:45:48,798] INFO in views: ⚙️ Headers: {'Content-Length': '173', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:45:48,799] INFO in views: Received input: {'deck': 'C', 'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'class': 'Third', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1, 'alone': 0}
+[2025-06-10 13:45:48,799] ERROR in views: Prediction error: name 'model' is not defined
+[2025-06-10 13:45:48,800] WARNING in log: Bad Request: /predict/
+[2025-06-10 13:45:48,800] WARNING in basehttp: "POST /predict/ HTTP/1.1" 400 40
+[2025-06-10 13:56:01,819] INFO in autoreload: Watching for file changes with StatReloader
+[2025-06-10 13:56:04,786] INFO in views: ✅ Keras model loaded successfully.
+[2025-06-10 13:56:11,410] INFO in basehttp: "GET / HTTP/1.1" 200 5458
+[2025-06-10 13:56:14,159] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:56:14,159] INFO in views: ⚙️ Headers: {'Content-Length': '173', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:56:14,159] INFO in views: Received input: {'deck': 'C', 'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'class': 'Third', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1, 'alone': 0}
+[2025-06-10 13:56:14,340] INFO in views: Prediction result: {'survived': True, 'confidence': 0.9999422430992126}
+[2025-06-10 13:56:14,342] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 52
+[2025-06-10 13:56:18,447] INFO in views: ⚙️ Request method: POST
+[2025-06-10 13:56:18,448] INFO in views: ⚙️ Headers: {'Content-Length': '173', 'Content-Type': 'application/json', 'Host': '127.0.0.1:8000', 'Connection': 'keep-alive', 'Sec-Ch-Ua-Platform': '"Windows"', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', 'Sec-Ch-Ua': '"Google Chrome";v="137", "Chromium";v="137", "Not/A)Brand";v="24"', 'Dnt': '1', 'Sec-Ch-Ua-Mobile': '?0', 'Accept': '*/*', 'Origin': 'http://127.0.0.1:8000', 'Sec-Fetch-Site': 'same-origin', 'Sec-Fetch-Mode': 'cors', 'Sec-Fetch-Dest': 'empty', 'Referer': 'http://127.0.0.1:8000/', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Accept-Language': 'pt-BR,pt;q=0.9,en;q=0.8', 'Cookie': 'csrftoken=mZubEu0tg6PLND1KrQh1DSe1csRoI2gV'}
+[2025-06-10 13:56:18,448] INFO in views: Received input: {'deck': 'C', 'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'class': 'Third', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1, 'alone': 0}
+[2025-06-10 13:56:18,510] INFO in views: Prediction result: {'survived': True, 'confidence': 0.9999422430992126}
+[2025-06-10 13:56:18,511] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 52
+[2025-06-10 13:56:47,929] WARNING in log: Forbidden (CSRF cookie not set.): /
+[2025-06-10 13:56:47,930] WARNING in basehttp: "POST / HTTP/1.1" 403 1367
+[2025-06-10 13:57:14,955] INFO in basehttp: "POST /predict HTTP/1.1" 301 0
+[2025-06-10 13:57:14,962] INFO in views: ⚙️ Request method: GET
+[2025-06-10 13:57:14,962] INFO in views: ⚙️ Headers: {'Content-Length': '', 'Content-Type': 'text/plain', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '2186b2e0-29c6-42dd-a5ca-1eb67c508fad', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8000/predict', 'Host': '127.0.0.1:8000'}
+[2025-06-10 13:57:14,965] INFO in basehttp: "GET /predict/ HTTP/1.1" 302 0
+[2025-06-10 13:57:14,969] INFO in basehttp: "GET / HTTP/1.1" 200 5458
+[2025-06-10 14:00:26,672] INFO in views: ⚙️ Request method: POST
+[2025-06-10 14:00:26,673] INFO in views: ⚙️ Headers: {'Content-Length': '242', 'Content-Type': 'application/json', 'User-Agent': 'PostmanRuntime/7.44.0', 'Accept': '*/*', 'Postman-Token': '3cf2c105-2db9-438b-ae87-a724ec149c44', 'Host': 'localhost:8000', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive'}
+[2025-06-10 14:00:26,673] INFO in views: Received input: {'sex': 'male', 'age': 22, 'sibsp': 1, 'parch': 0, 'fare': 7.25, 'embarked': 'S', 'who': 'man', 'alone': 0, 'class': 'Third', 'deck': 'C', 'embark_town': 'Southampton', 'pclass': 3, 'adult_male': 1}
+[2025-06-10 14:00:26,760] INFO in views: Prediction result: {'survived': True, 'confidence': 1.0}
+[2025-06-10 14:00:26,762] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 37
+[2025-10-23 21:39:25,051] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:45:08,262] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:45:14,963] WARNING in log: Not Found: /
+[2025-10-23 21:45:14,964] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:45:15,204] WARNING in log: Not Found: /favicon.ico
+[2025-10-23 21:45:15,206] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-10-23 21:45:58,892] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:46:05,589] WARNING in log: Not Found: /
+[2025-10-23 21:46:05,590] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:46:05,841] WARNING in log: Not Found: /favicon.ico
+[2025-10-23 21:46:05,846] WARNING in basehttp: "GET /favicon.ico HTTP/1.1" 404 179
+[2025-10-23 21:47:08,372] INFO in basehttp: "GET /predict HTTP/1.1" 301 0
+[2025-10-23 21:47:08,700] WARNING in log: Bad Request: /predict/
+[2025-10-23 21:47:08,700] WARNING in basehttp: "GET /predict/ HTTP/1.1" 400 28
+[2025-10-23 21:47:15,791] WARNING in log: Not Found: /post/
+[2025-10-23 21:47:15,792] WARNING in basehttp: "GET /post/ HTTP/1.1" 404 179
+[2025-10-23 21:48:26,041] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:48:26,041] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:48:49,593] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:48:49,593] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:49:28,237] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:49:28,238] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:51:12,357] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 21:51:13,218] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:51:25,614] WARNING in log: Not Found: /
+[2025-10-23 21:51:25,615] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 21:51:31,407] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:51:31,407] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:53:48,049] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:53:48,050] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 57
+[2025-10-23 21:55:53,804] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 21:55:54,691] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:56:06,007] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 21:56:19,322] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 21:56:19,322] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 84
+[2025-10-23 22:11:31,524] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:11:37,427] WARNING in log: Not Found: /
+[2025-10-23 22:11:37,428] WARNING in basehttp: "GET / HTTP/1.1" 404 179
+[2025-10-23 22:11:56,094] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 22:11:56,096] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 393
+[2025-10-23 22:14:52,231] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/scripts/predict_logic.py changed, reloading.
+[2025-10-23 22:14:51,370] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:15:00,452] ERROR in log: Internal Server Error: /predict/
+[2025-10-23 22:15:00,452] ERROR in basehttp: "POST /predict/ HTTP/1.1" 500 43
+[2025-10-23 22:15:47,183] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 69
+[2025-10-23 22:31:11,385] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/prediction/views.py changed, reloading.
+[2025-10-23 22:31:12,893] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:32:06,505] INFO in autoreload: /home/daniel/Projetos/titanic-survival-prediction/prediction/urls.py changed, reloading.
+[2025-10-23 22:32:07,515] INFO in autoreload: Watching for file changes with StatReloader
+[2025-10-23 22:32:21,385] INFO in basehttp: "POST /predict/ HTTP/1.1" 200 69
