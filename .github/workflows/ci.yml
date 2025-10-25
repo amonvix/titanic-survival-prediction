@@ -34,11 +34,8 @@ jobs:
 
       - name: 📦 Install dev dependencies
         run: |
-          if [ -f requirements-dev.txt ]; then
-            pip install -r requirements-dev.txt
-          else
-            echo "⚠️ requirements-dev.txt não encontrado. Prosseguindo sem dependências extras."
-          fi
+          pip install -r requirements-dev.txt
+          
 
       # 4️⃣ Build Docker image (sem push)
       - name: Build Docker image (no push)
