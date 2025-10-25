@@ -45,7 +45,7 @@ jobs:
       #############################################
       - name: ⚙️ Terraform Init
         working-directory: infra
-        run: terraform init
+        run: terraform init -reconfigure
 
       - name: 🛠️ Terraform Apply (infra inicial)
         working-directory: infra
