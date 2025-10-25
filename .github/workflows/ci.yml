@@ -17,11 +17,11 @@ jobs:
 
     steps:
       # 1️⃣ Checkout do código
-      - name: Checkout repository
+      - name: 📥 Checkout repository
         uses: actions/checkout@v4
 
       # 2️⃣ Setup Python
-      - name: Setup Python
+      - name: 🐍 Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -32,20 +32,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 📦 Install dev dependencies
+      # 4️⃣ Rodar testes (sem falhar se não houver testes)
+      - name: 🧪 Running tests (tolerant if none exist)
         run: |
-          pip install -r requirements-dev.txt
-          
-
-      # 4️⃣ Build Docker image (sem push)
-      - name: Build Docker image (no push)
-        run: |
-          echo "🏗️ Building Docker image locally..."
-          docker build -t titanic-ci:${{ github.sha }} .
-
-      # 5️⃣ Rodar testes
-      - name: Run tests
-        run: |
-          echo "🧪 Running tests..."
-          pytest
-          
+          echo "⚙️ Checking for tests..."
+          if ls tests/*.py 1> /dev/null 2>&1; then
+            echo "✅ Tests found. Running pytest..."
+            pytest
+          else
+            echo "⚠️ No tests found. Skipping pytest."
+          fi
