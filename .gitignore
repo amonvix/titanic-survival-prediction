@@ -46,6 +46,7 @@ terraform.tfstate
 terraform.tfstate.backup
 *.tfstate*
 *.tfvars
+**.terraform
 
 # ===== DOCKER =====
 *.tar
