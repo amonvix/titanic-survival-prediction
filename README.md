@@ -1,25 +1,127 @@
-# Titanic Survival Prediction
+Titanic Survival Prediction 🧠⚙️
 
-[![Status](https://img.shields.io/badge/status-live-brightgreen)](#)  
-[![License](https://img.shields.io/github/license/Amonvix/titanic-survival-prediction)](#)  
-[![Python](https://img.shields.io/badge/python-3.10-blue)](#)  
-[![FastAPI](https://img.shields.io/badge/fastapi-0.95-brightgreen)](#)  
-[![TensorFlow](https://img.shields.io/badge/tensorflow-2.x-orange)](#)  
 
-## Overview
 
-This project is a **machine learning-driven API** built with **FastAPI** to predict the survival probability of Titanic passengers. The model is trained with features like age, class, sex, fare, family relations, and port of embarkation.  
-Deployed at **Fly.io**, the endpoint `/predict/` accepts JSON payload and returns survival predictions.
 
-## Demo / Live
 
-Access the live app here:  
-🔗 https://titanic-survival-prediction.fly.dev/
 
-Example request:
 
-```bash
-curl -X POST https://titanic-survival-prediction.fly.dev/predict/ \
+
+
+
+
+
+
+
+🚀 Overview
+
+Titanic Survival Prediction is a machine learning–powered API that predicts whether a passenger would have survived the Titanic disaster based on demographic and ticket data.
+Built with FastAPI and trained on the Kaggle Titanic dataset, this project serves as a foundation for a full MLOps workflow — including model training, API serving, Docker containerization, CI/CD automation, and future deployment via Fly.io and AWS ECS using Terraform.
+
+🧩 Current Status
+Component	Status	Technology
+Data Processing	✅ Complete	pandas, NumPy
+Model Training	✅ Functional	scikit-learn, TensorFlow
+API	✅ Functional	FastAPI
+Docker	✅ Ready	Dockerfile
+CI/CD	🚧 In Progress	GitHub Actions
+Infrastructure as Code	🚧 In Progress	Terraform (AWS ECS planned)
+Deployment	🚧 Upcoming	Fly.io / AWS
+Frontend	❌ Not yet implemented	
+🧠 Architecture
+Current Pipeline
+flowchart LR
+    D[Raw Titanic Data] --> P[Preprocessing & Feature Encoding]
+    P --> M[Model Training - Scikit-learn / TensorFlow]
+    M --> F[Model Saved as pipeline.pkl]
+    F --> A[FastAPI /predict Endpoint]
+    A --> R[JSON Response with Probability + Prediction]
+
+Planned Full MLOps Flow
+flowchart LR
+    subgraph Dev["Local Dev"]
+        Code[FastAPI + ML Training]
+        Tests[Pytest / Ruff / Mypy]
+    end
+
+    Code -->|git push| Repo[(GitHub Repo)]
+
+    subgraph CI["GitHub Actions"]
+        CI1[Lint & Type Check]
+        CI2[Run Tests]
+        CI3[Build Docker Image]
+        CI4[Push Image to GHCR/ECR]
+        CI5[Deploy to Fly.io or AWS ECS]
+    end
+
+    Repo --> CI1 --> CI2 --> CI3 --> CI4 --> CI5
+
+    subgraph Cloud["Cloud Runtime"]
+        API[FastAPI App Container]
+        Model[Loaded Model.pkl]
+        Logs[Structured Logs]
+        Metrics[Monitoring (Prometheus/Grafana - Planned)]
+    end
+
+    CI5 --> API --> Model --> Logs
+
+📂 Project Structure
+titanic-survival-prediction/
+├── app/
+│   ├── core/config.py
+│   ├── models/
+│   │   ├── predict.py
+│   │   └── schemas.py
+│   └── routers/main.py
+│
+├── data/
+│   ├── titanic.csv
+│   └── titanic_clean.csv
+│
+├── infra/
+│   └── terraform/
+│       ├── main.tf
+│       ├── outputs.tf
+│       └── provider.tf
+│
+├── models/pipeline.pkl
+├── scripts/
+│   ├── create_pipeline.py
+│   ├── save_sklearn_model.py
+│   └── train_model.py
+│
+├── aws-oidc-setup/
+│   ├── policy-ecr.json
+│   └── trust-policy.json
+│
+├── Dockerfile
+├── requirements.txt
+├── requirements-dev.txt
+├── mypy.ini
+├── pytest.ini
+└── .github/workflows/ci.yml
+
+🧪 Running Locally
+
+Clone the repository and set up your environment:
+
+git clone https://github.com/Amonvix/titanic-survival-prediction.git
+cd titanic-survival-prediction
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+
+Run the API locally:
+
+uvicorn app.routers.main:app --reload
+
+
+Then open your browser at http://localhost:8000/docs
+ to access Swagger UI.
+
+🧾 Example Request
+curl -X POST http://localhost:8000/predict/ \
   -H "Content-Type: application/json" \
   -d '{
         "age": 28,
@@ -32,135 +134,84 @@ curl -X POST https://titanic-survival-prediction.fly.dev/predict/ \
         "deck": "Unknown"
       }'
 
+
+Response:
+
 {
   "survived_probability": 0.237,
   "survived": false
 }
-| Component                | Technology                |
-| ------------------------ | ------------------------- |
-| API                      | FastAPI                   |
-| Model                    | TensorFlow / scikit-learn |
-| Data Processing          | pandas, NumPy             |
-| Containerization         | Docker                    |
-| DevOps / Hosting         | Fly.io                    |
-| CI/CD (planned)          | GitHub Actions            |
-| Infrastructure (planned) | Terraform                 |
 
-[ Client / UI ] → HTTP JSON → [ FastAPI + Prediction ] → [ ML model loaded ] → Response
+🧱 Docker
 
-flowchart LR
-    subgraph Dev["Dev Laptop"]
-        C[Code: FastAPI + TensorFlow]
-        T[Unit/API Tests]
-    end
+Build and run the container:
 
-    C -->|git push| R[(GitHub Repo)]
-
-    subgraph CI["GitHub Actions (CI/CD)"]
-        A1[Lint & Type Check\nruff/mypy]
-        A2[Tests\npytest + coverage]
-        A3[Security Scan\npip-audit/trivy]
-        A4[Build Docker Image]
-        A5[Tag & Push Image\nGHCR]
-        A6[Deploy to Fly.io\nflyctl]
-        A7[AWS Check (Opcional)\nOIDC -> IAM Role\nPush Image p/ ECR ou Artefato p/ S3]
-    end
-
-    R -->|on: push / PR / tag| A1 --> A2 --> A3 --> A4 --> A5 --> A6
-    A5 -->|image: ghcr.io/amonvix/titanic-api:sha| RT[(Runtime: Fly.io)]
-    A4 --> A7
-
-    subgraph Cloud["Runtime"]
-        RT --> Svc[FastAPI /predict]
-        Svc --> Model[(ML Model\nTensorFlow/Keras)]
-        Svc --> Logs[(App Logs)]
-        Svc --> Metrics[(Future: Prom/Grafana)]
-    end
-
-    subgraph AWS["AWS (somente para checagem)"]
-        OIDC[GitHub OIDC Provider] --> IAM[IAM Role c/ Trust OIDC]
-        IAM --> ECR[(ECR Repo)]
-        IAM --> S3[(S3 Artifacts - opcional)]
-    end
-
-    A7 -->|assume-role| IAM
-    A7 --> ECR
-    A7 --> S3
-
-
-
-Getting Started (Local)
-Clone this repo:
-
-git clone https://github.com/Amonvix/titanic-survival-prediction.git
-cd titanic-survival-prediction
-
-(Optional) Create and activate a virtual environment:
-python3 -m venv venv
-source venv/bin/activate
-
-Install dependencies:
-pip install -r requirements.txt
-
-Run the app:
-uvicorn main:app --reload
-
-Test with curl (same block as above) or open localhost:8000/docs to inspect endpoints.
-
-
-Docker
-
-Build and run with Docker:
 docker build -t titanic-api .
 docker run -d -p 8000:8000 titanic-api
-Then test with curl at http://localhost:8000/predict/.
-
-Model Details
-
-Trained on the classic Titanic dataset (train + test split, cross-validation).
-
-Preprocessing includes handling missing values, encoding categorical features (sex, embarked, deck).
-
-Model outputs both a survival probability and a binary decision (threshold 0.5).
-
-Performance metrics (accuracy, ROC-AUC, etc.) can be added here.
 
 
-Future Improvements
+Then test via:
 
-Add CI/CD pipelines (GitHub Actions) for testing, linting, and deployment.
+curl http://localhost:8000/predict/
 
-Define Terraform modules to provision infra (Fly, DNS, SSL).
+🧮 Model Training
 
-Add unit tests, end-to-end tests, and model drift monitoring.
+The model is trained on the Kaggle Titanic dataset with preprocessing, encoding, and normalization handled by a Scikit-learn pipeline.
+Trained models are serialized to models/pipeline.pkl.
 
-Add metrics & logging (Prometheus, Grafana).
+Key scripts:
 
-Expand dataset and explore ensemble models.
+train_model.py — trains the model
 
+create_pipeline.py — builds preprocessing & inference pipeline
 
-Contributing
+save_sklearn_model.py — saves the model for API use
 
-Feel free to open issues or send pull requests.
-Please follow the style guidelines and include tests for new features.
+Future integration with TensorFlow will allow hybrid or ensemble training.
 
-License & Credits
+🧰 CI/CD & Infrastructure
+
+CI/CD: GitHub Actions (.github/workflows/ci.yml) handles linting, testing, and build automation.
+
+Docker Build: Prepares production-ready container image for deployment.
+
+Terraform: Declarative IaC setup under infra/terraform for AWS ECS / ECR resources.
+
+OIDC Setup: aws-oidc-setup/ enables secure GitHub → AWS role assumption for deployments.
+
+Planned next steps:
+
+✅ Add automated tests and coverage reports
+
+✅ Push Docker image to GHCR / ECR
+
+🚀 Deploy on Fly.io / AWS ECS via Terraform
+
+🧭 Roadmap
+
+ Model training and serialization
+
+ API for prediction
+
+ Dockerized application
+
+ CI/CD pipeline via GitHub Actions
+
+ Infrastructure provisioning via Terraform
+
+ Deploy to Fly.io / AWS ECS
+
+ Add Prometheus/Grafana metrics
+
+ Unit & integration tests
+
+🧑‍💻 Author
+
+Daniel Pedroso (Amonvix)
+GitHub
+ • LinkedIn
+
+📜 License
 
 Licensed under the MIT License.
-Built by Amon.
-Thanks to open-source libraries and maintainers.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Built with passion and precision 🧩
