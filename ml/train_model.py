@@ -3,14 +3,20 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix, classification_report
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    confusion_matrix,
+    classification_report,
+)
 
 # Load cleaned dataset
-df = pd.read_csv('data/titanic_clean.csv')
+df = pd.read_csv("data/titanic_clean.csv")
 
 # Define input features and target label
-X = df.drop(columns=['survived'])
-y = df['survived']
+X = df.drop(columns=["survived"])
+y = df["survived"]
 
 # Split dataset into training and testing sets (80% train, 20% test)
 X_train, X_test, y_train, y_test = train_test_split(
