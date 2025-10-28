@@ -1,36 +1,12 @@
-# Ignore git
-.git/
-.gitignore
-
-# No virtual envs
-.venv/
-venv/
-
-# No local configs
-.vscode/
-*.code-workspace
-
-# Ignore cache
+.git
 __pycache__/
-.ruff_cache/
-.mypy_cache/
+*.pyc
+.venv
+venv
 .pytest_cache/
-
-# Ignore Terraform state
-terraform.tfstate*
-*.tfvars
-
-# Ignore data not needed in runtime
+.mypy_cache/
+.ruff_cache/
 data/
-
-# Ignore notebooks
-*.ipynb
-
-# Ignore reports & logs
-reports/
-*.log
-
-# Ignore ML training artifacts if not required in container
-*.pt
-*.ckpt
-*.h5
+infra/.terraform
+*.tfstate
+*.tfstate.backup

@@ -2,68 +2,64 @@ Titanic Survival Prediction 🧠⚙️
 
 
 
+🚀 How We Ship – CI/CD Overview
 
+This project follows a hybrid delivery strategy:
 
+Continuous Integration (CI): Automatic
+Continuous Deployment (CD): Manual (AWS ECS)
 
+The goal is to ensure every commit is validated and packaged automatically,
+while production releases remain under human control.
 
+🧩 Workflow Summary
+Stage	Trigger	Description
+CI (Build & Test)	Every push / PR to main or develop	Runs Ruff linting, Pytest, builds the Docker image, and publishes it to GitHub Container Registry (GHCR).
+CD (Deploy)	Manual (“Run workflow” in GitHub Actions)	Updates the running AWS ECS service to use a specific image version (tag).
+Infra (Terraform)	Optional manual workflow	Applies or plans infrastructure changes with Terraform using OIDC authentication.
+⚙️ CI Pipeline (.github/workflows/ci.yml)
 
+Trigger:
+Runs on every push or pull_request.
 
+Steps:
 
+Lint & format check with Ruff
 
+Unit testing with Pytest
 
+Build Docker image
 
+Push image to GHCR using commit SHA as tag
 
-🚀 Overview
+Output image tag for later deployment
 
-Titanic Survival Prediction is a machine learning–powered API that predicts whether a passenger would have survived the Titanic disaster based on demographic and ticket data.
-Built with FastAPI and trained on the Kaggle Titanic dataset, this project serves as a foundation for a full MLOps workflow — including model training, API serving, Docker containerization, CI/CD automation, and future deployment via Fly.io and AWS ECS using Terraform.
+Resulting image:
 
-🧩 Current Status
-Component	Status	Technology
-Data Processing	✅ Complete	pandas, NumPy
-Model Training	✅ Functional	scikit-learn, TensorFlow
-API	✅ Functional	FastAPI
-Docker	✅ Ready	Dockerfile
-CI/CD	🚧 In Progress	GitHub Actions
-Infrastructure as Code	🚧 In Progress	Terraform (AWS ECS planned)
-Deployment	🚧 Upcoming	Fly.io / AWS
-Frontend	❌ Not yet implemented	
-🧠 Architecture
-Current Pipeline
-flowchart LR
-    D[Raw Titanic Data] --> P[Preprocessing & Feature Encoding]
-    P --> M[Model Training - Scikit-learn / TensorFlow]
-    M --> F[Model Saved as pipeline.pkl]
-    F --> A[FastAPI /predict Endpoint]
-    A --> R[JSON Response with Probability + Prediction]
+ghcr.io/Amonvix/titanic-survival-prediction/titanic:<GIT_SHA>
 
-Planned Full MLOps Flow
-flowchart LR
-    subgraph Dev["Local Dev"]
-        Code[FastAPI + ML Training]
-        Tests[Pytest / Ruff / Mypy]
-    end
+🚀 CD Pipeline (.github/workflows/deploy-aws.yml)
 
-    Code -->|git push| Repo[(GitHub Repo)]
+Trigger:
+Manual (GitHub Actions → “Deploy to AWS ECS (manual)” → “Run workflow”).
 
-    subgraph CI["GitHub Actions"]
-        CI1[Lint & Type Check]
-        CI2[Run Tests]
-        CI3[Build Docker Image]
-        CI4[Push Image to GHCR/ECR]
-        CI5[Deploy to Fly.io or AWS ECS]
-    end
+Inputs:
 
-    Repo --> CI1 --> CI2 --> CI3 --> CI4 --> CI5
+image_tag: SHA from the CI pipeline
 
-    subgraph Cloud["Cloud Runtime"]
-        API[FastAPI App Container]
-        Model[Loaded Model.pkl]
-        Logs[Structured Logs]
-        Metrics[Monitoring (Prometheus/Grafana - Planned)]
-    end
+environment: staging or production
 
-    CI5 --> API --> Model --> Logs
+Workflow Steps:
+
+Authenticates with AWS using OIDC (no access keys needed)
+
+Pulls the latest ECS task definition
+
+Creates a new revision with the updated image
+
+Updates ECS service and waits until it becomes stable
+
+Production deployments can be gated with required approvals using GitHub Environments.
 
 📂 Project Structure
 titanic-survival-prediction/
@@ -101,24 +97,20 @@ titanic-survival-prediction/
 ├── pytest.ini
 └── .github/workflows/ci.yml
 
-🧪 Running Locally
+🧱 Infrastructure
 
-Clone the repository and set up your environment:
+Terraform defines all infrastructure resources (ECR, ECS, networking, IAM roles).
+You can apply manually via a separate workflow:
 
-git clone https://github.com/Amonvix/titanic-survival-prediction.git
-cd titanic-survival-prediction
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
+Actions → Infra (Terraform)
 
 
-Run the API locally:
+or locally:
 
-uvicorn app.routers.main:app --reload
-
-
-Then open your browser at http://localhost:8000/docs
- to access Swagger UI.
+cd infra/terraform
+terraform init
+terraform plan
+terraform apply
 
 🧾 Example Request
 curl -X POST http://localhost:8000/predict/ \
@@ -142,68 +134,53 @@ Response:
   "survived": false
 }
 
-🧱 Docker
+🔐 Required GitHub Secrets
+Secret	Purpose
+AWS_ROLE_TO_ASSUME	ARN of IAM Role trusted for GitHub OIDC
+AWS_REGION	Region for ECS deployment
+ECS_CLUSTER	ECS cluster name
+ECS_SERVICE	ECS service name
+ECS_TASK_FAMILY	Task definition family
+ECS_CONTAINER_NAME	Container name in the ECS task
+(optional) FLY_API_TOKEN	Kept for Fly.io testing or future lightweight deploys
+🧭 Workflow Logic
+flowchart LR
+    subgraph CI["CI (Automatic)"]
+        Lint[Ruff Lint]
+        Test[Pytest]
+        Build[Docker Build]
+        Push[Push to GHCR]
+    end
 
-Build and run the container:
+    subgraph CD["CD (Manual)"]
+        Deploy[Deploy via ECS Update]
+        Wait[Wait for Service Stability]
+    end
 
-docker build -t titanic-api .
-docker run -d -p 8000:8000 titanic-api
+    Lint --> Test --> Build --> Push --> Deploy --> Wait
 
+🧩 Benefits
 
-Then test via:
+✅ Strong quality gate (every commit tested and linted)
+✅ Immutable image versioning (tag = commit SHA)
+✅ Secure AWS access via OIDC (no static keys)
+✅ Manual approval before production deployment
+✅ Simple rollback — redeploy previous SHA
 
-curl http://localhost:8000/predict/
+🧠 TL;DR
 
-🧮 Model Training
+We build automatically. We deploy deliberately.
+This gives the team speed in development and confidence in production.
 
-The model is trained on the Kaggle Titanic dataset with preprocessing, encoding, and normalization handled by a Scikit-learn pipeline.
-Trained models are serialized to models/pipeline.pkl.
+📦 Next Steps
 
-Key scripts:
+Add coverage reporting
 
-train_model.py — trains the model
+Automate rollback on failure
 
-create_pipeline.py — builds preprocessing & inference pipeline
+Integrate Prometheus/Grafana for metrics
 
-save_sklearn_model.py — saves the model for API use
-
-Future integration with TensorFlow will allow hybrid or ensemble training.
-
-🧰 CI/CD & Infrastructure
-
-CI/CD: GitHub Actions (.github/workflows/ci.yml) handles linting, testing, and build automation.
-
-Docker Build: Prepares production-ready container image for deployment.
-
-Terraform: Declarative IaC setup under infra/terraform for AWS ECS / ECR resources.
-
-OIDC Setup: aws-oidc-setup/ enables secure GitHub → AWS role assumption for deployments.
-
-Planned next steps:
-
-✅ Add automated tests and coverage reports
-
-✅ Push Docker image to GHCR / ECR
-
-🚀 Deploy on Fly.io / AWS ECS via Terraform
-
-🧭 Roadmap
-
- Model training and serialization
-
- API for prediction
-
- Dockerized application
-
- CI/CD pipeline via GitHub Actions
-
- Infrastructure provisioning via Terraform
-
- Deploy to Fly.io / AWS ECS
-
- Add Prometheus/Grafana metrics
-
- Unit & integration tests
+Add Terraform remote backend (S3 + DynamoDB)
 
 🧑‍💻 Author
 
