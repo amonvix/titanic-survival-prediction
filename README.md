@@ -1,18 +1,6 @@
 Titanic Survival Prediction 🧠⚙️
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 🚀 Overview
 
 Titanic Survival Prediction is a machine learning–powered API that predicts whether a passenger would have survived the Titanic disaster based on demographic and ticket data.
