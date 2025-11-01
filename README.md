@@ -63,6 +63,7 @@ Production deployments can be gated with required approvals using **GitHub Envir
 
 ## 📂 Project Structure
 
+```
 titanic-survival-prediction/
 ├── app/
 │ ├── core/config.py
@@ -97,6 +98,7 @@ titanic-survival-prediction/
 ├── mypy.ini
 ├── pytest.ini
 └── .github/workflows/ci.yml
+```
 
 ---
 
