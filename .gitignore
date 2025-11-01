@@ -1,61 +1,21 @@
-# ===== PYTHON =====
+# Python
 __pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.pkl
-*.joblib
-
-# Virtual envs
+*.pyc
 .venv/
 venv/
 
-# Local settings
-.env
-.env.*
-
-# Logs
-*.log
-
-# Coverage
-.coverage
-htmlcov/
-
-# Ruff / Mypy / Pytest
-.ruff_cache/
-.mypy_cache/
+# Tests & tooling
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Jupyter
-*.ipynb_checkpoints
+# Data & models (opcional manter fora do git)
+data/
+models/*.pkl
 
-# Reports
-reports/
-report.json
-
-# ===== DJANGO LEGACY (caso algo ainda esteja em transição) =====
-db.sqlite3
-
-# ===== TENSORFLOW/TORCH CHECKPOINTS (se vier a existir) =====
-*.ckpt
-*.pt
-*.h5
-
-# ===== TERRAFORM =====
-terraform.tfstate
-terraform.tfstate.backup
-*.tfstate*
-*.tfvars
-**.terraform
-
-# ===== DOCKER =====
-*.tar
-
-# ===== VS CODE | IDEs =====
-.vscode/
-.idea/
-*.code-workspace
-
-# ===== SYSTEM FILES =====
-.DS_Store
-Thumbs.db
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
+.terraform.lock.hcl

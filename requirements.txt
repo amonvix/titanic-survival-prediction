@@ -1,7 +1,15 @@
-fastapi==0.110.0
-uvicorn[standard]==0.30.0
-pandas==2.3.3
+# Core Web Framework
+fastapi==0.120.1
+uvicorn[standard]==0.32.0
+
+# Machine Learning / Data
+pandas==2.2.3
+numpy==1.26.4
 scikit-learn==1.5.2
+tensorflow==2.17.0
 joblib==1.4.2
-pydantic==2.12.3
-pydantic-settings==2.11.0
+
+# Utils
+pydantic==2.9.2
+python-dotenv==1.0.1
+httpx==0.28.1

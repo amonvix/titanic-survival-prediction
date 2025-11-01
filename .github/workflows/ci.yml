@@ -1,44 +1,70 @@
-name: 🧪 CI - Build, Test and Publish
+name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main, develop ]
   pull_request:
-  workflow_dispatch:
+    branches: [ main, develop ]
 
 permissions:
   contents: read
   packages: write
 
 jobs:
-  build-test-publish:
+  lint-test-build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: ci-${{ github.ref }}
+      cancel-in-progress: true
 
     steps:
-      # 1️⃣ Checkout do código
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # 2️⃣ Setup Python
-      - name: 🐍 Setup Python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      # 3️⃣ Install dependencies
-      - name: 📦 Install dependencies
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: pip-${{ runner.os }}-${{ hashFiles('**/requirements*.txt') }}
+
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
 
-      # 4️⃣ Rodar testes (sem falhar se não houver testes)
-      - name: 🧪 Running tests (tolerant if none exist)
+      - name: Ruff (lint + import order)
         run: |
-          echo "⚙️ Checking for tests..."
-          if ls tests/*.py 1> /dev/null 2>&1; then
-            echo "✅ Tests found. Running pytest..."
-            pytest
-          else
-            echo "⚠️ No tests found. Skipping pytest."
-          fi
+          ruff check .
+          ruff format --check || echo "Formatting changes suggested, continuing..."
+
+
+      - name: Pytest
+        run: pytest -q
+
+      - name: Build Docker image
+        run: docker build -t ghcr.io/${{ github.repository }}/titanic:${{ github.sha }} .
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push image (GHCR)
+        run: |
+          docker push ghcr.io/${{ github.repository }}/titanic:${{ github.sha }}
+
+      - name: Expose image tag (for manual deploy)
+        id: meta
+        run: echo "IMAGE_TAG=${{ github.sha }}" >> $GITHUB_OUTPUT
+
+      - name: Summary
+        run: |
+          echo "Built and pushed: ghcr.io/${{ github.repository }}/titanic:${{ github.sha }}"

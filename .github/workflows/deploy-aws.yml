@@ -1,104 +1,68 @@
-# 📍 Caminho: .github/workflows/deploy-aws.yml
-name: 🚀 AWS Deploy - Terraform + ECS Fargate
+name: Deploy to AWS ECS (manual)
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Image tag to deploy (e.g., a Git SHA from CI)'
+        required: true
+      environment:
+        description: 'Environment name (staging|production)'
+        required: true
+        default: 'staging'
 
 permissions:
   contents: read
+  id-token: write      # OIDC
+  packages: read
+
+env:
+  IMAGE: ghcr.io/${{ github.repository }}/titanic
 
 jobs:
-  deploy:
-    name: 📦 Deploy to AWS ECS Fargate
+  deploy-ecs:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    concurrency:
+      group: deploy-${{ github.event.inputs.environment }}
+      cancel-in-progress: false
 
     steps:
-      #############################################
-      # 1️⃣ Checkout do código
-      #############################################
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      #############################################
-      # 2️⃣ Configuração das credenciais AWS
-      #############################################
-      - name: 🔐 Configure AWS credentials
+      - name: Configure AWS credentials (OIDC)
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      #############################################
-      # 3️⃣ Instalação do Terraform
-      #############################################
-      - name: 📦 Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+      - name: Install jq (ensure available)
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Login to GHCR (for private image pulls if needed)
+        uses: docker/login-action@v3
         with:
-          terraform_version: 1.9.0
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      #############################################
-      # 4️⃣ Terraform Init + Apply inicial (ECR, IAM, etc.)
-      #############################################
-      - name: ⚙️ Terraform Init
-        working-directory: infra
-        run: terraform init -reconfigure
-
-      - name: 🛠️ Terraform Apply (infra inicial)
-        working-directory: infra
-        run: terraform apply -auto-approve
-
-      #############################################
-      # 5️⃣ Login no ECR
-      #############################################
-      - name: 🔓 Login to Amazon ECR
+      - name: Describe current task definition
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          FAMILY: ${{ secrets.ECS_TASK_FAMILY }}
         run: |
-          aws ecr get-login-password --region "$AWS_REGION" \
-            | docker login --username AWS --password-stdin \
-              "$(aws sts get-caller-identity --query Account --output text).dkr.ecr.${AWS_REGION}.amazonaws.com"
+          aws ecs describe-task-definition --task-definition "$FAMILY" > td.json
 
-      #############################################
-      # 6️⃣ Build da imagem com tags latest e SHA
-      #############################################
-      - name: 🏗️ Build Docker image
+      - name: Create new task definition revision with new image
         env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
+          FAMILY: ${{ secrets.ECS_TASK_FAMILY }}
+          NEW_IMAGE: ${{ env.IMAGE }}:${{ github.event.inputs.image_tag }}
+          CONTAINER_NAME: ${{ secrets.ECS_CONTAINER_NAME }}
         run: |
-          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/titanic-api"
-          docker build -t "$ECR_REPO:latest" -t "$ECR_REPO:${{ github.sha }}" .
-          echo "✅ Imagem construída com sucesso."
+          cat td.json \
+          | jq '.taskDefinition
+                | .containerDefinitions
+                |= (map(if .name == env.CONTAINER_NAME then .image = env.NEW_IMAGE else . end))
+                | del(.taskDefinitionArn,.revision,.status,.requiresAttributes,.compatibilities,.registeredAt,.registeredBy,.deregisteredAt)' \
+          > new-td.json
 
-      #############################################
-      # 7️⃣ Push das imagens
-      #############################################
-      - name: 📤 Push Docker image to ECR
-        env:
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-        run: |
-          AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-          ECR_REPO="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/titanic-api"
-          docker push "$ECR_REPO:latest"
-          docker push "$ECR_REPO:${{ github.sha }}"
-          echo "✅ Imagem enviada ao ECR."
-
-      #############################################
-      # 8️⃣ Terraform Apply final com SHA
-      #############################################
-      - name: 📦 Terraform Apply (com imagem atualizada - SHA)
-        working-directory: infra
-        run: terraform apply -auto-approve -var="image_tag=${{ github.sha }}"
-
-      #############################################
-      # ✅ Resumo final
-      #############################################
-      - name: ✅ Deployment Summary
-        run: |
-          echo "✅ Deploy finalizado com sucesso!"
-          echo "📍 Imagem usada: ${{ github.sha }}"
-          echo "🚀 ECS Fargate em execução."
+          NEW_TD_ARN=$(aws ecs register-task-definition --cli-input-json file://new-td.json | jq -r '.taskDefinition.taskDefinitionArn')
