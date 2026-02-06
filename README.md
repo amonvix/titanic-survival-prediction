@@ -19,20 +19,6 @@ It includes:
 Data -> ML Training -> Model Artifact  
 Model Artifact -> FastAPI API -> Docker -> CI/CD -> Terraform (Cloud)
 
-`[ Data ] -> [ ML Training ] -> [ Model Artifact ]`
-`|`
-`v`
-`[ FastAPI API ]`
-`|`
-`v`
-`[ Docker ]`
-`|`
-`v`
-`[ CI/CD ]`
-`|`
-`v`
-`[ Terraform ]`
-
 > 🇧🇷 Arquitetura em PT:  
 > O fluxo é de ponta a ponta: dados → treinamento do modelo → API de predição → container → pipeline → infraestrutura.
 
@@ -77,8 +63,7 @@ curl -X POST http://localhost:8000/predict \
 docker build -t titanic-api .
 docker run -p 8000:8000 titanic-api
 ```
-Open in your browser:
-[Swagger](http://localhost:8000/docs)
+Open in your browser: http://localhost:8000/docs
 
 Execução local em PT:
 A API é exposta via FastAPI com documentação interativa (Swagger).
