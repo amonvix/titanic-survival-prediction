@@ -1,12 +1,14 @@
 from fastapi import APIRouter, HTTPException
+import joblib
 
 from app.models.predict import infer
 from app.models.schemas import PredictInput, PredictOutput
 
+
 router = APIRouter()
 
 
-@router.post("/predict", response_model=PredictOutput)
+@router.post("/", response_model=PredictOutput)
 def predict(payload: PredictInput):
     try:
         survived, probability = infer(payload)
