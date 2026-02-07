@@ -9,19 +9,42 @@ It includes:
 - CI/CD pipeline with GitHub Actions
 - Infrastructure as Code with Terraform
 
-> 🇧🇷 Contexto em português:  
-> Este projeto não é apenas um notebook de ciência de dados. Ele demonstra o ciclo completo de um produto de ML: treino do modelo, exposição via API, empacotamento com Docker, pipeline de CI/CD e infraestrutura como código.
-
 ---
 
 ## Architecture Flow
 
-Data -> ML Training -> Model Artifact  
-Model Artifact -> FastAPI API -> Docker -> CI/CD -> Terraform (Cloud)
+```mermaid
+flowchart LR
+    subgraph Dev["Developer Workspace"]
+        C[FastAPI + ML Code]
+        T[Unit/API Tests]
+    end
 
-> 🇧🇷 Arquitetura em PT:  
-> O fluxo é de ponta a ponta: dados → treinamento do modelo → API de predição → container → pipeline → infraestrutura.
+    C -->|git push| R[(GitHub Repo)]
 
+    subgraph CI["GitHub Actions (CI/CD)"]
+        A1[Lint & Tests]
+        A2[Security Scan]
+        A3[Build Docker Image]
+        A4[Publish Artifact]
+    end
+
+    R --> A1 --> A2 --> A3 --> A4
+
+    subgraph Runtime["Runtime Environment"]
+        API[FastAPI /predict]
+        Model[(ML Pipeline Artifact)]
+        API --> Model
+    end
+
+    A4 -->|deploy| API
+
+    subgraph IaC["Terraform (IaC)"]
+        TF[Cloud Infrastructure Templates]
+    end
+
+    TF -.-> Runtime
+```
 ---
 
 ## Features
@@ -32,12 +55,6 @@ Model Artifact -> FastAPI API -> Docker -> CI/CD -> Terraform (Cloud)
 - Docker support  
 - CI/CD with GitHub Actions  
 - Terraform templates for cloud infrastructure  
-
-> 🇧🇷 O que isso demonstra tecnicamente:  
-> - Integração de ML com backend  
-> - Deploy preparado para produção  
-> - Automação de build e entrega  
-> - Infraestrutura como código (IaC)
 
 ---
 
@@ -63,21 +80,21 @@ curl -X POST http://localhost:8000/predict \
 docker build -t titanic-api .
 docker run -p 8000:8000 titanic-api
 ```
-Open in your browser: http://localhost:8000/docs
+Open in your browser: http://localhost:8000/docs (Swagger UI)
 
-Execução local em PT:
-A API é exposta via FastAPI com documentação interativa (Swagger).
+
 
 ## CI/CD Strategy
 
-The CI/CD pipeline automates:
+```md
+CI/CD Patterns used:
 
 - container build  
 - basic validation checks  
 - packaging for deployment  
 
 This ensures every change is validated and reproducible, reducing configuration drift and manual errors.
-
+```
 ---
 
 ## Infrastructure as Code (Terraform)

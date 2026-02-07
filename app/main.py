@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 
-from app.routers import predict
+from app.routers.predict import router as predict_router
 
-app = FastAPI(title="Titanic API")
+app = FastAPI()
 
-app.include_router(predict.router)
+app.include_router(predict_router, prefix="/predict", tags=["predict"])
 
 
 @app.get("/")
