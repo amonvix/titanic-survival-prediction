@@ -1,13 +1,14 @@
-# Titanic Survival Prediction – ML API with FastAPI, Docker, CI/CD and Terraform
+# Titanic Survival Prediction – API de ML com FastAPI, Docker, CI/CD e Terraform
 
-This project is a production-like Machine Learning application that predicts the probability of survival of Titanic passengers.
+Projeto de Machine Learning em formato “production-like” que prediz a probabilidade de sobrevivência de passageiros do Titanic.
 
-It includes:
-- a trained ML model
-- a REST API built with FastAPI
-- Dockerized application
-- CI/CD pipeline with GitHub Actions
-- Infrastructure as Code with Terraform
+Inclui:
+
+- modelo de ML treinado
+- API REST com FastAPI
+- aplicação containerizada com Docker
+- pipeline de CI/CD com GitHub Actions
+- Infraestrutura como Código com Terraform
 
 ---
 
@@ -45,16 +46,17 @@ flowchart LR
 
     TF -.-> Runtime
 ```
+
 ---
 
 ## Features
 
-- Survival prediction using ML  
-- REST API endpoint (/predict)  
-- Input validation  
-- Docker support  
-- CI/CD with GitHub Actions  
-- Terraform templates for cloud infrastructure  
+- Survival prediction using ML
+- REST API endpoint (/predict)
+- Input validation
+- Docker support
+- CI/CD with GitHub Actions
+- Terraform templates for cloud infrastructure
 
 ---
 
@@ -80,30 +82,30 @@ curl -X POST http://localhost:8000/predict \
 docker build -t titanic-api .
 docker run -p 8000:8000 titanic-api
 ```
+
 Open in your browser: http://localhost:8000/docs (Swagger UI)
-
-
 
 ## CI/CD Strategy
 
 ```md
 CI/CD Patterns used:
 
-- container build  
-- basic validation checks  
-- packaging for deployment  
+- container build
+- basic validation checks
+- packaging for deployment
 
 This ensures every change is validated and reproducible, reducing configuration drift and manual errors.
 ```
+
 ---
 
 ## Infrastructure as Code (Terraform)
 
 The infrastructure layer is fully described using Terraform, enabling:
 
-- reproducible environments  
-- consistent deployments  
-- cloud-agnostic design principles  
+- reproducible environments
+- consistent deployments
+- cloud-agnostic design principles
 
 This approach reflects production-grade practices commonly used in real-world cloud architectures.
 
@@ -113,27 +115,27 @@ This approach reflects production-grade practices commonly used in real-world cl
 
 This project demonstrates the candidate’s ability to:
 
-- Design cloud-ready architectures for ML systems  
-- Bridge Data Science and Backend Engineering  
-- Implement DevOps automation and Infrastructure as Code  
-- Think in terms of production systems, not isolated experiments  
-- Apply software engineering and architectural principles to ML workloads  
+- Design cloud-ready architectures for ML systems
+- Bridge Data Science and Backend Engineering
+- Implement DevOps automation and Infrastructure as Code
+- Think in terms of production systems, not isolated experiments
+- Apply software engineering and architectural principles to ML workloads
 
 It reflects practical experience with:
 
-- API design  
-- containerization  
-- CI/CD pipelines  
-- cloud infrastructure modeling  
-- end-to-end solution delivery  
+- API design
+- containerization
+- CI/CD pipelines
+- cloud infrastructure modeling
+- end-to-end solution delivery
 
 ---
 
 ## Project Status
 
-- Functional ML model  
-- API available for inference  
-- Dockerized application  
-- CI/CD pipelines configured  
-- Terraform templates included  
+- Functional ML model
+- API available for inference
+- Dockerized application
+- CI/CD pipelines configured
+- Terraform templates included
 - Study / portfolio project (not a commercial product)
